@@ -7323,19 +7323,26 @@ select.form-control {
   }
 }
 /* line 171, less\5_components.less */
+.btn [class^="icon-"] {
+  font-size: 18px;
+  display: inline-block;
+  vertical-align: text-bottom;
+  margin-right: 5px;
+}
+/* line 178, less\5_components.less */
 .btn-outline-primary {
   border-color: #4AB9C0;
   background-color: transparent;
   color: #4AB9C0;
   font-weight: 500;
 }
-/* line 176, less\5_components.less */
+/* line 183, less\5_components.less */
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
   background-color: #4AB9C0;
   color: #fff;
 }
-/* line 182, less\5_components.less */
+/* line 189, less\5_components.less */
 .product-badge {
   position: absolute;
   font-size: 14px;
@@ -7345,13 +7352,13 @@ select.form-control {
 }
 /* Pager
 ---------------------------------- */
-/* line 193, less\5_components.less */
+/* line 200, less\5_components.less */
 ul.pagination,
 ul.pager {
   margin: 20px 0 40px;
   text-align: left;
 }
-/* line 198, less\5_components.less */
+/* line 205, less\5_components.less */
 ul.pagination li {
   padding: 0;
   margin: 0 5px 0 0;
@@ -7361,7 +7368,7 @@ ul.pagination li {
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
-/* line 207, less\5_components.less */
+/* line 214, less\5_components.less */
 ul.pagination li > a,
 .pagination > li:first-child > a,
 .pagination > li:last-child > a,
@@ -7379,7 +7386,7 @@ ul.pager li > a {
   -moz-border-radius: 100%;
   border-radius: 100%;
 }
-/* line 222, less\5_components.less */
+/* line 229, less\5_components.less */
 ul.pagination li > a:hover,
 ul.pagination li > a:focus {
   background-color: transparent;
@@ -7387,7 +7394,7 @@ ul.pagination li > a:focus {
   background-color: #4AB9C0;
   border-color: #4AB9C0;
 }
-/* line 229, less\5_components.less */
+/* line 236, less\5_components.less */
 ul.pagination li.active a,
 .pagination > .active > a:hover,
 .pagination > .active > a:focus {
@@ -7395,18 +7402,18 @@ ul.pagination li.active a,
   background-color: #4AB9C0;
   border-color: #4AB9C0;
 }
-/* line 238, less\5_components.less */
+/* line 245, less\5_components.less */
 .row.row-table {
   display: table;
 }
-/* line 240, less\5_components.less */
+/* line 247, less\5_components.less */
 .row.row-table div[class^="col-"] {
   float: none;
   padding: 0;
   display: table-cell;
   vertical-align: middle;
 }
-/* line 248, less\5_components.less */
+/* line 255, less\5_components.less */
 .row.row-collapse div[class^="col-"] {
   padding: 0;
 }
