@@ -22,8 +22,7 @@
         <link rel="Shortcut icon" href="favicon.ico" type="image/x-icon" />
 
         <!-- Web Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700,900&amp;subset=latin-ext,vietnamese" rel="stylesheet">
 
         <!-- site CSS file -->
         <link rel="stylesheet" href="stylesheets/main.css">
@@ -34,17 +33,346 @@
 <div class="wrapper">
     <!--.header-->
     <header class="header">
-        <h2>HEADER</h2>
+        <div class="topbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-16">
+                        <div class="sanofi-logo pull-right"><img src="images/sanofi.png" alt=""></div>
+                        <div class="head-title">Bienvenue sur notre site d’achat en ligne</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="home.html"><img src="images/logo.png" alt=""></a>
+                </div>
+                <ul class="nav navbar-nav navbar-right toolbar">
+                    <li class="active">
+                        <a href="#" class="home">
+                            <span class="cart--inner">
+                                <span aria-hidden="true" class="icon-home"></span>
+                                <span class="sr-only">Mon Panier</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="cart">
+                            <span class="cart--inner">
+                                <span class="bulle">
+                                    <span class="count">3</span>
+                                </span>
+                                <span aria-hidden="true" class="icon-bag"></span>
+                                <span class="sr-only">Mon Panier</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
     <!--/.header-->
     <main class="main">
 
-        <h1>main</h1>
+        <!--.page-title-->
+        <div class="page-title bg-gray">
+            <div class="container">
+                <div class="column text-center">
+                    <a href="#"><img src="images/pub-img-728x90.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <!--/.page-title-->
+
+        <!--.section-shop-->
+        <section class="section-content bg-gray section-shop">
+
+            <!--.shop-toolbar-->
+            <div class="shop-toolbar">
+                <div class="container">
+                    <div class="row row-collapse">
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <form>
+                                <div class="form-group input-search">
+                                    <button class="btn btn-link" type="submit"><i class="icon-magnifier"></i></button>
+                                    <input class="form-control radius-50" type="text" placeholder="Rechercher une référence">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="shop-sorting text-right">
+                                <label for="sorting">Filtrer par:</label>
+                                <select class="form-control radius-50" id="sorting">
+                                    <option>Prix : Bas - Haut </option>
+                                    <option>Prix : Haut - Bas</option>
+                                    <option>Ordre: A - Z</option>
+                                    <option>Ordre: Z - A</option>
+                                </select>
+                                <span class="text-muted">Showing:&nbsp;</span><span>1 / 6 articles</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/.shop-toolbar-->
+
+            <!--.products-grid-->
+            <div class="products-list">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-16">
+
+                            <!--.product-card-->
+                            <div class="product-card product-list">
+
+                                <!--.product-thumb-->
+                                <a class="product-thumb" href="#"><img src="images/img-default.png" alt="Product"> </a>
+                                <!--/.product-thumb-->
+
+                                <!--.product-info-->
+                                <div class="product-info">
+
+                                    <!--.product-title-->
+                                    <h3 class="product-title"><small>Catégorie</small><a href="#">Libellé produit</a></h3>
+                                    <!--/.product-title-->
+
+                                    <!--.product-desc-->
+                                    <div class="product-desc">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore odit officiis illo perferendis deserunt, ipsam dolor ad dolorem eaque veritatis harum facilis aliquid id doloribus incidunt quam beatae, soluta magni alori sedum quanto.</p>
+                                        <a href="#" class="btn btn-default radius-50 btn-sm">En savoir plus</a>
+                                    </div>
+                                    <!--/.product-desc-->
+
+                                    <!--.product-details-->
+                                    <div class="product-details">
+                                        <ul class="list-unstyled">
+                                            <li><strong>Référence:</strong> 00023526335341</li>
+                                            <li><strong>Libellé caractéristique:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aliquam, aut blanditiis dicta distinctio eligendi libero maiores nam non, obcaecati odit quaerat quisquam repellendus sequi, soluta temporibus ut voluptas.</li>
+                                            <li><strong>Valeur caractéristique:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aliquam, aut blanditiis dicta distinctio eligendi libero maiores nam non, obcaecati odit quaerat quisquam repellendus sequi, soluta temporibus ut voluptas.</li>
+                                        </ul>
+                                    </div>
+                                    <!--/.product-details-->
+
+                                    <!--.product-buttons-->
+                                    <div class="product-buttons">
+                                        <ul class="list-inline pull-right">
+                                            <li>
+                                                <h4 class="product-price">
+                                                    <del>$99.99</del>
+                                                    $49.99
+                                                </h4>
+                                            </li>
+                                            <li>
+                                                <button class="btn btn-outline-primary radius-50">Ajouter au panier</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!--/.product-buttons-->
+
+                                </div>
+                                <!--/.product-info-->
+                            </div>
+                            <!--.product-card-->
+
+                        </div>
+                        <div class="col-xs-16">
+
+                            <!--.product-card-->
+                            <div class="product-card product-list">
+
+                                <!--.product-thumb-->
+                                <a class="product-thumb" href="#"><img src="images/img-default.png" alt="Product"> </a>
+                                <!--/.product-thumb-->
+
+                                <!--.product-info-->
+                                <div class="product-info">
+
+                                    <!--.product-title-->
+                                    <h3 class="product-title"><small>Catégorie</small><a href="#">Libellé produit</a></h3>
+                                    <!--/.product-title-->
+
+                                    <!--.product-desc-->
+                                    <div class="product-desc">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore odit officiis illo perferendis deserunt, ipsam dolor ad dolorem eaque veritatis harum facilis aliquid id doloribus incidunt quam beatae, soluta magni alori sedum quanto.</p>
+                                        <a href="#" class="btn btn-default radius-50 btn-sm">En savoir plus</a>
+                                    </div>
+                                    <!--/.product-desc-->
+
+                                    <!--.product-details-->
+                                    <div class="product-details">
+                                        <ul class="list-unstyled">
+                                            <li><strong>Référence:</strong> 00023526335341</li>
+                                            <li><strong>Libellé caractéristique:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aliquam, aut blanditiis dicta distinctio eligendi libero maiores nam non, obcaecati odit quaerat quisquam repellendus sequi, soluta temporibus ut voluptas.</li>
+                                            <li><strong>Valeur caractéristique:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aliquam, aut blanditiis dicta distinctio eligendi libero maiores nam non, obcaecati odit quaerat quisquam repellendus sequi, soluta temporibus ut voluptas.</li>
+                                        </ul>
+                                    </div>
+                                    <!--/.product-details-->
+
+                                    <!--.product-buttons-->
+                                    <div class="product-buttons">
+                                        <ul class="list-inline pull-right">
+                                            <li>
+                                                <h4 class="product-price">
+                                                    <del>$99.99</del>
+                                                    $49.99
+                                                </h4>
+                                            </li>
+                                            <li>
+                                                <button class="btn btn-outline-primary radius-50">Ajouter au panier</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!--/.product-buttons-->
+
+                                </div>
+                                <!--/.product-info-->
+                            </div>
+                            <!--.product-card-->
+
+                        </div>
+                        <div class="col-xs-16">
+
+                            <!--.product-card-->
+                            <div class="product-card product-list">
+
+                                <!--.product-thumb-->
+                                <a class="product-thumb" href="#"><img src="images/img-default.png" alt="Product"> </a>
+                                <!--/.product-thumb-->
+
+                                <!--.product-info-->
+                                <div class="product-info">
+
+                                    <!--.product-title-->
+                                    <h3 class="product-title"><small>Catégorie</small><a href="#">Libellé produit</a></h3>
+                                    <!--/.product-title-->
+
+                                    <!--.product-desc-->
+                                    <div class="product-desc">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore odit officiis illo perferendis deserunt, ipsam dolor ad dolorem eaque veritatis harum facilis aliquid id doloribus incidunt quam beatae, soluta magni alori sedum quanto.</p>
+                                        <a href="#" class="btn btn-default radius-50 btn-sm">En savoir plus</a>
+                                    </div>
+                                    <!--/.product-desc-->
+
+                                    <!--.product-details-->
+                                    <div class="product-details">
+                                        <ul class="list-unstyled">
+                                            <li><strong>Référence:</strong> 00023526335341</li>
+                                            <li><strong>Libellé caractéristique:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aliquam, aut blanditiis dicta distinctio eligendi libero maiores nam non, obcaecati odit quaerat quisquam repellendus sequi, soluta temporibus ut voluptas.</li>
+                                            <li><strong>Valeur caractéristique:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aliquam, aut blanditiis dicta distinctio eligendi libero maiores nam non, obcaecati odit quaerat quisquam repellendus sequi, soluta temporibus ut voluptas.</li>
+                                        </ul>
+                                    </div>
+                                    <!--/.product-details-->
+
+                                    <!--.product-buttons-->
+                                    <div class="product-buttons">
+                                        <ul class="list-inline pull-right">
+                                            <li>
+                                                <h4 class="product-price">
+                                                    <del>$99.99</del>
+                                                    $49.99
+                                                </h4>
+                                            </li>
+                                            <li>
+                                                <button class="btn btn-outline-primary radius-50">Ajouter au panier</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!--/.product-buttons-->
+
+                                </div>
+                                <!--/.product-info-->
+                            </div>
+                            <!--.product-card-->
+
+                        </div>
+                        <div class="col-xs-16">
+
+                            <!--.product-card-->
+                            <div class="product-card product-list">
+
+                                <!--.product-thumb-->
+                                <a class="product-thumb" href="#"><img src="images/img-default.png" alt="Product"> </a>
+                                <!--/.product-thumb-->
+
+                                <!--.product-info-->
+                                <div class="product-info">
+
+                                    <!--.product-title-->
+                                    <h3 class="product-title"><small>Catégorie</small><a href="#">Libellé produit</a></h3>
+                                    <!--/.product-title-->
+
+                                    <!--.product-desc-->
+                                    <div class="product-desc">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore odit officiis illo perferendis deserunt, ipsam dolor ad dolorem eaque veritatis harum facilis aliquid id doloribus incidunt quam beatae, soluta magni alori sedum quanto.</p>
+                                        <a href="#" class="btn btn-default radius-50 btn-sm">En savoir plus</a>
+                                    </div>
+                                    <!--/.product-desc-->
+
+                                    <!--.product-details-->
+                                    <div class="product-details">
+                                        <ul class="list-unstyled">
+                                            <li><strong>Référence:</strong> 00023526335341</li>
+                                            <li><strong>Libellé caractéristique:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aliquam, aut blanditiis dicta distinctio eligendi libero maiores nam non, obcaecati odit quaerat quisquam repellendus sequi, soluta temporibus ut voluptas.</li>
+                                            <li><strong>Valeur caractéristique:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aliquam, aut blanditiis dicta distinctio eligendi libero maiores nam non, obcaecati odit quaerat quisquam repellendus sequi, soluta temporibus ut voluptas.</li>
+                                        </ul>
+                                    </div>
+                                    <!--/.product-details-->
+
+                                    <!--.product-buttons-->
+                                    <div class="product-buttons">
+                                        <ul class="list-inline pull-right">
+                                            <li>
+                                                <h4 class="product-price">
+                                                    <del>$99.99</del>
+                                                    $49.99
+                                                </h4>
+                                            </li>
+                                            <li>
+                                                <button class="btn btn-outline-primary radius-50">Ajouter au panier</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!--/.product-buttons-->
+
+                                </div>
+                                <!--/.product-info-->
+                            </div>
+                            <!--.product-card-->
+
+                        </div>
+                    </div>
+
+                    <nav class="text-center">
+                        <ul class="pagination">
+                            <li><a href="#" aria-label="Previous"><i class="icon-arrow-left"></i></a></li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">...</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#" aria-label="Next"><i class="icon-arrow-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!--/.products-grid-->
+
+        </section>
+        <!--/.section-shop-->
 
     </main>
     <!--.footer-->
     <footer class="footer">
-        <h2>FOOTER</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-16">
+                    <p>
+                        <strong>SEGETEX S.A.S.</strong> / 26, Boulevard Paul Vaillant Couturier 94200 IVRY-SUR-SEINE / Tél. : 01 56 20 60 02 / Fax : 01 56 20 60 05 / E-mail : contact@segetex.com
+                    </p>
+                </div>
+            </div>
+        </div>
     </footer>
     <!--.footer-->
 </div>
