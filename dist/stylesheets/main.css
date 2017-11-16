@@ -2165,7 +2165,7 @@ output {
   display: block;
   width: 100%;
   height: 46px;
-  padding: 6px 18px;
+  padding: 6px 12px;
   font-size: 14px;
   line-height: normal;
   color: #606975;
@@ -2397,7 +2397,7 @@ select[multiple].input-sm {
 /* line 369, less\forms.less */
 .input-lg {
   height: 46px;
-  padding: 10px 16px;
+  padding: 10px 14px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px;
@@ -2415,7 +2415,7 @@ select[multiple].input-lg {
 /* line 374, less\forms.less */
 .form-group-lg .form-control {
   height: 46px;
-  padding: 10px 16px;
+  padding: 10px 14px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px;
@@ -2434,7 +2434,7 @@ select[multiple].input-lg {
 .form-group-lg .form-control-static {
   height: 46px;
   min-height: 38px;
-  padding: 11px 16px;
+  padding: 11px 14px;
   font-size: 18px;
   line-height: 1.3333333;
 }
@@ -2973,7 +2973,7 @@ select[multiple].input-lg {
   background-image: none;
   border: 1px solid transparent;
   white-space: nowrap;
-  padding: 6px 18px;
+  padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
   border-radius: 4px;
@@ -3453,7 +3453,7 @@ fieldset[disabled] .btn-link:focus {
 /* line 133, less\buttons.less */
 .btn-lg,
 .btn-group-lg > .btn {
-  padding: 10px 16px;
+  padding: 10px 14px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px;
@@ -3929,7 +3929,7 @@ tbody.collapse.in {
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn {
   height: 46px;
-  padding: 10px 16px;
+  padding: 10px 14px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px;
@@ -3997,7 +3997,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 /* line 77, less\input-groups.less */
 .input-group-addon {
-  padding: 6px 18px;
+  padding: 6px 12px;
   font-size: 18px;
   font-weight: normal;
   line-height: 1;
@@ -4015,7 +4015,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 /* line 94, less\input-groups.less */
 .input-group-addon.input-lg {
-  padding: 10px 16px;
+  padding: 10px 14px;
   font-size: 18px;
   border-radius: 6px;
 }
@@ -5075,7 +5075,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 /* line 5, less\mixins\pagination.less */
 .pagination-lg > li > a,
 .pagination-lg > li > span {
-  padding: 10px 16px;
+  padding: 10px 14px;
   font-size: 18px;
   line-height: 1.3333333;
 }
@@ -7190,7 +7190,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .input-search .form-control {
   padding-right: 40px;
 }
-/* line 49, less\5_components.less */
+/* line 50, less\5_components.less */
 select.form-control {
   padding-right: 38px;
   background-position: center right 17px;
@@ -7201,14 +7201,14 @@ select.form-control {
   -moz-appearance: none;
   appearance: none;
 }
-/* line 58, less\5_components.less */
+/* line 59, less\5_components.less */
 .shop-sorting label,
 .shop-sorting .form-control,
 .shop-sorting span {
   display: inline-block;
   vertical-align: middle;
 }
-/* line 64, less\5_components.less */
+/* line 65, less\5_components.less */
 .shop-sorting label {
   margin: 0;
   padding: 8px 5px 8px 0;
@@ -7217,13 +7217,13 @@ select.form-control {
   font-weight: normal;
   text-transform: none;
 }
-/* line 72, less\5_components.less */
+/* line 73, less\5_components.less */
 .shop-sorting .form-control {
   width: 100%;
   max-width: 186px;
   margin-right: 10px;
 }
-/* line 77, less\5_components.less */
+/* line 78, less\5_components.less */
 .shop-sorting span {
   padding: 8px 0;
 }
@@ -7235,7 +7235,7 @@ select.form-control {
   padding: 18px;
   border: 1px solid #E1E7EC;
   border-radius: 7px;
-  background-color: #fff;
+  background-color: #FFF;
 }
 /* line 92, less\5_components.less */
 .product-card .product-thumb {
@@ -7246,103 +7246,168 @@ select.form-control {
 /* line 96, less\5_components.less */
 .product-card .product-thumb img {
   margin: 0 auto;
+  max-width: 100%;
 }
-/* line 101, less\5_components.less */
+/* line 102, less\5_components.less */
 .product-card .product-title {
+  margin-top: 0;
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: normal;
   text-align: center;
+  position: relative;
+  padding-right: 80px;
 }
-/* line 106, less\5_components.less */
+/* line 110, less\5_components.less */
 .product-card .product-title small {
   display: block;
   color: #606975;
   margin-bottom: 3px;
 }
-/* line 113, less\5_components.less */
+/* line 115, less\5_components.less */
+.product-card .product-title .product-pdf-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* line 122, less\5_components.less */
 .product-card .product-desc {
+  font-size: 13px;
   margin-bottom: 15px;
 }
-/* line 117, less\5_components.less */
+/* line 127, less\5_components.less */
+.product-card .product-size,
+.product-card .product-ref,
 .product-card .product-price {
   margin-bottom: 10px;
   color: #606975;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
   text-align: center;
 }
-/* line 125, less\5_components.less */
+/* line 136, less\5_components.less */
+.product-card .product-size .label,
+.product-card .product-ref .label,
+.product-card .product-price .label {
+  color: #9DA9B9;
+  font-size: 14px;
+  font-weight: 500;
+}
+/* line 144, less\5_components.less */
+.product-card .product-pdf-link > svg {
+  height: 28px;
+  width: 28px;
+}
+/* line 147, less\5_components.less */
+.product-card .product-pdf-link > svg path {
+  fill: #D9534F !important;
+}
+/* line 153, less\5_components.less */
+.product-card .product-pdf-link:hover > svg path {
+  fill: #d43f3a !important;
+}
+/* line 160, less\5_components.less */
 .product-card .product-card .product-buttons {
   padding: 12px 0 8px;
   text-align: center;
 }
-/* line 130, less\5_components.less */
+/* line 165, less\5_components.less */
 .product-card.product-list {
   margin-bottom: 30px;
 }
 @media (min-width: 768px) {
-  /* line 133, less\5_components.less */
+  /* line 168, less\5_components.less */
   .product-card.product-list {
     display: table;
     width: 100%;
     padding: 0;
   }
-  /* line 138, less\5_components.less */
+  /* line 173, less\5_components.less */
   .product-card.product-list .product-thumb,
   .product-card.product-list .product-info {
     display: table-cell;
-    vertical-align: middle;
+    vertical-align: top;
   }
-  /* line 144, less\5_components.less */
+  /* line 179, less\5_components.less */
   .product-card.product-list .product-thumb {
     position: relative;
-    width: 270px;
+    width: 240px;
     padding: 20px 18px;
-    border-right: 1px solid #e1e7ec;
+    border-right: 1px solid #E1E7EC;
   }
-  /* line 150, less\5_components.less */
+  /* line 186, less\5_components.less */
   .product-card.product-list .product-info {
     padding: 20px 22px;
   }
-  /* line 153, less\5_components.less */
+  /* line 189, less\5_components.less */
   .product-card.product-list .product-info .product-title,
   .product-card.product-list .product-info .product-price,
   .product-card.product-list .product-info .product-buttons {
     text-align: left;
   }
-  /* line 158, less\5_components.less */
+  /* line 194, less\5_components.less */
   .product-card.product-list .product-info .product-title {
     font-size: 18px;
   }
-  /* line 161, less\5_components.less */
+  /* line 197, less\5_components.less */
   .product-card.product-list .product-info .product-buttons {
-    padding-top: 20px;
+    padding-top: 18px;
     padding-bottom: 0;
-    border-top: 1px solid #e1e7ec;
+    border-top: 1px solid #E1E7EC;
   }
 }
-/* line 171, less\5_components.less */
+/* line 208, less\5_components.less */
+.list-refs > li.ref-item {
+  margin-bottom: 10px;
+  -webkit-transition: all 300ms;
+  -o-transition: all 300ms;
+  transition: all 300ms;
+}
+/* line 14, less\mixins\clearfix.less */
+.list-refs > li.ref-item:before,
+.list-refs > li.ref-item:after {
+  content: " ";
+  display: table;
+}
+/* line 19, less\mixins\clearfix.less */
+.list-refs > li.ref-item:after {
+  clear: both;
+}
+/* line 14, less\mixins\clearfix.less */
+.list-refs > li.ref-item:before,
+.list-refs > li.ref-item:after {
+  content: " ";
+  display: table;
+}
+/* line 19, less\mixins\clearfix.less */
+.list-refs > li.ref-item:after {
+  clear: both;
+}
+/* line 212, less\5_components.less */
+.list-refs > li.ref-item:hover {
+  margin-left: 5px;
+}
+/* line 219, less\5_components.less */
 .btn [class^="icon-"] {
   font-size: 18px;
   display: inline-block;
   vertical-align: text-bottom;
   margin-right: 5px;
 }
-/* line 178, less\5_components.less */
+/* line 227, less\5_components.less */
 .btn-outline-primary {
   border-color: #4AB9C0;
   background-color: transparent;
   color: #4AB9C0;
   font-weight: 500;
 }
-/* line 183, less\5_components.less */
+/* line 232, less\5_components.less */
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
   background-color: #4AB9C0;
-  color: #fff;
+  color: #FFF;
 }
-/* line 189, less\5_components.less */
+/* line 239, less\5_components.less */
 .product-badge {
   position: absolute;
   font-size: 14px;
@@ -7352,13 +7417,13 @@ select.form-control {
 }
 /* Pager
 ---------------------------------- */
-/* line 200, less\5_components.less */
+/* line 249, less\5_components.less */
 ul.pagination,
 ul.pager {
   margin: 20px 0 40px;
   text-align: left;
 }
-/* line 205, less\5_components.less */
+/* line 255, less\5_components.less */
 ul.pagination li {
   padding: 0;
   margin: 0 5px 0 0;
@@ -7368,7 +7433,7 @@ ul.pagination li {
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
-/* line 214, less\5_components.less */
+/* line 265, less\5_components.less */
 ul.pagination li > a,
 .pagination > li:first-child > a,
 .pagination > li:last-child > a,
@@ -7386,34 +7451,34 @@ ul.pager li > a {
   -moz-border-radius: 100%;
   border-radius: 100%;
 }
-/* line 229, less\5_components.less */
+/* line 281, less\5_components.less */
 ul.pagination li > a:hover,
 ul.pagination li > a:focus {
   background-color: transparent;
-  color: #ffffff;
+  color: #FFFFFF;
   background-color: #4AB9C0;
   border-color: #4AB9C0;
 }
-/* line 236, less\5_components.less */
+/* line 289, less\5_components.less */
 ul.pagination li.active a,
 .pagination > .active > a:hover,
 .pagination > .active > a:focus {
-  color: #ffffff;
+  color: #FFFFFF;
   background-color: #4AB9C0;
   border-color: #4AB9C0;
 }
-/* line 245, less\5_components.less */
+/* line 298, less\5_components.less */
 .row.row-table {
   display: table;
 }
-/* line 247, less\5_components.less */
+/* line 300, less\5_components.less */
 .row.row-table div[class^="col-"] {
   float: none;
   padding: 0;
   display: table-cell;
   vertical-align: middle;
 }
-/* line 255, less\5_components.less */
+/* line 308, less\5_components.less */
 .row.row-collapse div[class^="col-"] {
   padding: 0;
 }
