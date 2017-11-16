@@ -11,6 +11,7 @@ module.exports = function (grunt) {
 
                     "dist/index.html": "index.html",
                     "dist/home.html": "home.html",
+                    "dist/resultat-recherche.html": "resultat-recherche.html",
 
                     // etc ...
                 }
