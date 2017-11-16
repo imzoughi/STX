@@ -12,6 +12,7 @@ module.exports = function (grunt) {
                     "dist/index.html": "index.html",
                     "dist/home.html": "home.html",
                     "dist/resultat-recherche.html": "resultat-recherche.html",
+                    "dist/panier.html": "panier.html",
 
                     // etc ...
                 }
@@ -19,13 +20,13 @@ module.exports = function (grunt) {
         },
 
         // Validate files with JSHint
-        jshint: {
-            options: {
-                jshintrc: true,
-                reporter: require('jshint-stylish')
-            },
-            all: ['javascript/**/*.js', '!bower_components/*.js', '!javascript/plugins/*.js', 'Gruntfile.js']
-        },
+        // jshint: {
+        //     options: {
+        //         jshintrc: true,
+        //         reporter: require('jshint-stylish')
+        //     },
+        //     all: ['javascript/**/*.js', '!bower_components/*.js', '!javascript/plugins/*.js', 'Gruntfile.js']
+        // },
 
         //Compile LESS files to CSS
         less: {

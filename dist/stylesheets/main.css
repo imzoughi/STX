@@ -374,8 +374,9 @@ figure {
 /* line 76, less\scaffolding.less */
 img {
   vertical-align: middle;
+  max-width: 100%;
 }
-/* line 81, less\scaffolding.less */
+/* line 82, less\scaffolding.less */
 .img-responsive,
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
@@ -383,11 +384,11 @@ img {
   max-width: 100%;
   height: auto;
 }
-/* line 86, less\scaffolding.less */
+/* line 87, less\scaffolding.less */
 .img-rounded {
   border-radius: 6px;
 }
-/* line 93, less\scaffolding.less */
+/* line 94, less\scaffolding.less */
 .img-thumbnail {
   padding: 4px;
   line-height: 1.42857143;
@@ -401,18 +402,18 @@ img {
   max-width: 100%;
   height: auto;
 }
-/* line 106, less\scaffolding.less */
+/* line 107, less\scaffolding.less */
 .img-circle {
   border-radius: 50%;
 }
-/* line 113, less\scaffolding.less */
+/* line 114, less\scaffolding.less */
 hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
   border-top: 1px solid #eeeeee;
 }
-/* line 125, less\scaffolding.less */
+/* line 126, less\scaffolding.less */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -423,7 +424,7 @@ hr {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-/* line 141, less\scaffolding.less */
+/* line 142, less\scaffolding.less */
 .sr-only-focusable:active,
 .sr-only-focusable:focus {
   position: static;
@@ -433,7 +434,7 @@ hr {
   overflow: visible;
   clip: auto;
 }
-/* line 159, less\scaffolding.less */
+/* line 160, less\scaffolding.less */
 [role="button"] {
   cursor: pointer;
 }
@@ -1802,28 +1803,28 @@ pre code {
     margin-left: 0%;
   }
 }
-/* line 6, bower_components\bootstrap\less\tables.less */
+/* line 6, less\tables.less */
 table {
   background-color: transparent;
 }
-/* line 9, bower_components\bootstrap\less\tables.less */
+/* line 9, less\tables.less */
 caption {
   padding-top: 8px;
   padding-bottom: 8px;
   color: #9DA9B9;
   text-align: left;
 }
-/* line 15, bower_components\bootstrap\less\tables.less */
+/* line 15, less\tables.less */
 th {
   text-align: left;
 }
-/* line 22, bower_components\bootstrap\less\tables.less */
+/* line 22, less\tables.less */
 .table {
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
 }
-/* line 31, bower_components\bootstrap\less\tables.less */
+/* line 31, less\tables.less */
 .table > thead > tr > th,
 .table > tbody > tr > th,
 .table > tfoot > tr > th,
@@ -1833,14 +1834,14 @@ th {
   padding: 8px;
   line-height: 1.42857143;
   vertical-align: top;
-  border-top: 1px solid #DDD;
+  border-top: 1px solid #E1E7EC;
 }
-/* line 41, bower_components\bootstrap\less\tables.less */
+/* line 41, less\tables.less */
 .table > thead > tr > th {
   vertical-align: bottom;
-  border-bottom: 2px solid #DDD;
+  border-bottom: 2px solid #E1E7EC;
 }
-/* line 50, bower_components\bootstrap\less\tables.less */
+/* line 50, less\tables.less */
 .table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,
 .table > thead:first-child > tr:first-child > th,
@@ -1849,56 +1850,56 @@ th {
 .table > thead:first-child > tr:first-child > td {
   border-top: 0;
 }
-/* line 57, bower_components\bootstrap\less\tables.less */
+/* line 57, less\tables.less */
 .table > tbody + tbody {
-  border-top: 2px solid #DDD;
+  border-top: 2px solid #E1E7EC;
 }
-/* line 62, bower_components\bootstrap\less\tables.less */
+/* line 62, less\tables.less */
 .table .table {
   background-color: #FFF;
 }
-/* line 75, bower_components\bootstrap\less\tables.less */
+/* line 75, less\tables.less */
 .table-condensed > thead > tr > th,
 .table-condensed > tbody > tr > th,
 .table-condensed > tfoot > tr > th,
 .table-condensed > thead > tr > td,
 .table-condensed > tbody > tr > td,
 .table-condensed > tfoot > tr > td {
-  padding: 5px;
+  padding: 10px 0;
 }
-/* line 88, bower_components\bootstrap\less\tables.less */
+/* line 88, less\tables.less */
 .table-bordered {
-  border: 1px solid #DDD;
+  border: 1px solid #E1E7EC;
 }
-/* line 94, bower_components\bootstrap\less\tables.less */
+/* line 94, less\tables.less */
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
 .table-bordered > tfoot > tr > th,
 .table-bordered > thead > tr > td,
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > td {
-  border: 1px solid #DDD;
+  border: 1px solid #E1E7EC;
 }
-/* line 101, bower_components\bootstrap\less\tables.less */
+/* line 101, less\tables.less */
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {
   border-bottom-width: 2px;
 }
-/* line 114, bower_components\bootstrap\less\tables.less */
+/* line 114, less\tables.less */
 .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: #F9F9F9;
 }
-/* line 125, bower_components\bootstrap\less\tables.less */
+/* line 125, less\tables.less */
 .table-hover > tbody > tr:hover {
   background-color: #F5F5F5;
 }
-/* line 135, bower_components\bootstrap\less\tables.less */
+/* line 135, less\tables.less */
 table col[class*="col-"] {
   position: static;
   float: none;
   display: table-column;
 }
-/* line 143, bower_components\bootstrap\less\tables.less */
+/* line 143, less\tables.less */
 table td[class*="col-"],
 table th[class*="col-"] {
   position: static;
@@ -2020,25 +2021,25 @@ table th[class*="col-"] {
 .table-hover > tbody > tr.danger:hover > th {
   background-color: #ebcccc;
 }
-/* line 171, bower_components\bootstrap\less\tables.less */
+/* line 171, less\tables.less */
 .table-responsive {
   overflow-x: auto;
   min-height: 0.01%;
 }
 @media screen and (max-width: 767px) {
-  /* line 175, bower_components\bootstrap\less\tables.less */
+  /* line 175, less\tables.less */
   .table-responsive {
     width: 100%;
     margin-bottom: 15px;
     overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    border: 1px solid #DDD;
+    border: 1px solid #E1E7EC;
   }
-  /* line 183, bower_components\bootstrap\less\tables.less */
+  /* line 183, less\tables.less */
   .table-responsive > .table {
     margin-bottom: 0;
   }
-  /* line 191, bower_components\bootstrap\less\tables.less */
+  /* line 191, less\tables.less */
   .table-responsive > .table > thead > tr > th,
   .table-responsive > .table > tbody > tr > th,
   .table-responsive > .table > tfoot > tr > th,
@@ -2047,11 +2048,11 @@ table th[class*="col-"] {
   .table-responsive > .table > tfoot > tr > td {
     white-space: nowrap;
   }
-  /* line 200, bower_components\bootstrap\less\tables.less */
+  /* line 200, less\tables.less */
   .table-responsive > .table-bordered {
     border: 0;
   }
-  /* line 208, bower_components\bootstrap\less\tables.less */
+  /* line 208, less\tables.less */
   .table-responsive > .table-bordered > thead > tr > th:first-child,
   .table-responsive > .table-bordered > tbody > tr > th:first-child,
   .table-responsive > .table-bordered > tfoot > tr > th:first-child,
@@ -2060,7 +2061,7 @@ table th[class*="col-"] {
   .table-responsive > .table-bordered > tfoot > tr > td:first-child {
     border-left: 0;
   }
-  /* line 212, bower_components\bootstrap\less\tables.less */
+  /* line 212, less\tables.less */
   .table-responsive > .table-bordered > thead > tr > th:last-child,
   .table-responsive > .table-bordered > tbody > tr > th:last-child,
   .table-responsive > .table-bordered > tfoot > tr > th:last-child,
@@ -2069,7 +2070,7 @@ table th[class*="col-"] {
   .table-responsive > .table-bordered > tfoot > tr > td:last-child {
     border-right: 0;
   }
-  /* line 225, bower_components\bootstrap\less\tables.less */
+  /* line 225, less\tables.less */
   .table-responsive > .table-bordered > tbody > tr:last-child > th,
   .table-responsive > .table-bordered > tfoot > tr:last-child > th,
   .table-responsive > .table-bordered > tbody > tr:last-child > td,
@@ -7124,6 +7125,10 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   font-size: 14px;
   font-weight: 500;
 }
+/* line 7, less\2_layout.less */
+.main {
+  min-height: 83vh;
+}
 /* line 2, less\layout\footer.less */
 .footer {
   background-color: #E1E7EC;
@@ -7285,8 +7290,8 @@ select.form-control {
 .product-card .product-price {
   margin-bottom: 10px;
   color: #606975;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
   text-align: center;
 }
 /* line 140, less\5_components.less */
@@ -7295,7 +7300,7 @@ select.form-control {
 .product-card .product-price .label {
   color: #9DA9B9;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
 }
 /* line 148, less\5_components.less */
 .product-card .product-pdf-link > svg {
@@ -7360,7 +7365,11 @@ select.form-control {
     border-top: 1px solid #E1E7EC;
   }
 }
-/* line 212, less\5_components.less */
+/* line 211, less\5_components.less */
+.list-refs {
+  margin-bottom: 0;
+}
+/* line 213, less\5_components.less */
 .list-refs > li.ref-item {
   margin-bottom: 10px;
   -webkit-transition: all 300ms;
@@ -7387,31 +7396,39 @@ select.form-control {
 .list-refs > li.ref-item:after {
   clear: both;
 }
-/* line 216, less\5_components.less */
+/* line 217, less\5_components.less */
 .list-refs > li.ref-item:hover {
   margin-left: 5px;
 }
-/* line 223, less\5_components.less */
+/* line 220, less\5_components.less */
+.list-refs > li.ref-item:only-child,
+.list-refs > li.ref-item:last-child {
+  margin-bottom: 0;
+}
+/* line 228, less\5_components.less */
 .btn [class^="icon-"] {
   font-size: 18px;
   display: inline-block;
   vertical-align: text-bottom;
-  margin-right: 5px;
 }
-/* line 231, less\5_components.less */
+/* line 233, less\5_components.less */
+.btn [class^="icon-"] + span {
+  margin-left: 5px;
+}
+/* line 238, less\5_components.less */
 .btn-outline-primary {
   border-color: #4AB9C0;
   background-color: transparent;
   color: #4AB9C0;
   font-weight: 500;
 }
-/* line 236, less\5_components.less */
+/* line 243, less\5_components.less */
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
   background-color: #4AB9C0;
   color: #FFF;
 }
-/* line 243, less\5_components.less */
+/* line 250, less\5_components.less */
 .product-badge {
   position: absolute;
   font-size: 14px;
@@ -7419,7 +7436,7 @@ select.form-control {
   letter-spacing: .07em;
   text-transform: uppercase;
 }
-/* line 251, less\5_components.less */
+/* line 258, less\5_components.less */
 .product-pager {
   border-top: 1px solid #E1E7EC;
   padding-top: 10px;
@@ -7427,13 +7444,13 @@ select.form-control {
 }
 /* Pager
 ---------------------------------- */
-/* line 259, less\5_components.less */
+/* line 266, less\5_components.less */
 ul.pagination,
 ul.pager {
   margin: 20px 0 40px;
   text-align: left;
 }
-/* line 265, less\5_components.less */
+/* line 272, less\5_components.less */
 ul.pagination li {
   padding: 0;
   margin: 0 5px 0 0;
@@ -7443,7 +7460,7 @@ ul.pagination li {
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
-/* line 275, less\5_components.less */
+/* line 282, less\5_components.less */
 ul.pagination li > a,
 .pagination > li:first-child > a,
 .pagination > li:last-child > a,
@@ -7461,7 +7478,7 @@ ul.pager li > a {
   -moz-border-radius: 100%;
   border-radius: 100%;
 }
-/* line 291, less\5_components.less */
+/* line 298, less\5_components.less */
 ul.pagination li > a:hover,
 ul.pagination li > a:focus {
   background-color: transparent;
@@ -7469,7 +7486,7 @@ ul.pagination li > a:focus {
   background-color: #4AB9C0;
   border-color: #4AB9C0;
 }
-/* line 299, less\5_components.less */
+/* line 306, less\5_components.less */
 ul.pagination li.active a,
 .pagination > .active > a:hover,
 .pagination > .active > a:focus {
@@ -7477,19 +7494,208 @@ ul.pagination li.active a,
   background-color: #4AB9C0;
   border-color: #4AB9C0;
 }
-/* line 308, less\5_components.less */
+/* line 315, less\5_components.less */
 .row.row-table {
   display: table;
 }
-/* line 310, less\5_components.less */
+/* line 317, less\5_components.less */
 .row.row-table div[class^="col-"] {
   float: none;
   padding: 0;
   display: table-cell;
   vertical-align: middle;
 }
-/* line 318, less\5_components.less */
+/* line 325, less\5_components.less */
 .row.row-collapse div[class^="col-"] {
   padding: 0;
+}
+/* line 331, less\5_components.less */
+.cart-container {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 0 18px;
+  border: 1px solid #E1E7EC;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  background-color: #FFF;
+}
+/* line 341, less\5_components.less */
+.cart-container > table {
+  margin-bottom: 0;
+}
+/* line 343, less\5_components.less */
+.cart-container > table tr > th,
+.cart-container > table tr > td {
+  text-align: center;
+  vertical-align: middle;
+}
+/* line 348, less\5_components.less */
+.cart-container > table tr > th:first-child {
+  text-align: left;
+}
+/* line 354, less\5_components.less */
+.cart-summary {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 0 18px 18px;
+  border: 2px solid #E1E7EC;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  background-color: #FFF;
+}
+/* line 368, less\5_components.less */
+.product-card-table {
+  display: table;
+  max-width: 500px;
+}
+/* line 371, less\5_components.less */
+.product-card-table .product-thumb,
+.product-card-table .product-desc {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+}
+/* line 378, less\5_components.less */
+.product-card-table .product-thumb {
+  width: 100px;
+}
+/* line 380, less\5_components.less */
+.product-card-table .product-thumb img {
+  max-width: 100%;
+}
+/* line 385, less\5_components.less */
+.product-card-table .product-thumb + .product-desc {
+  padding-left: 15px;
+}
+/* line 389, less\5_components.less */
+.product-card-table .product-desc {
+  padding-right: 15px;
+}
+/* line 391, less\5_components.less */
+.product-card-table .product-desc .product-title {
+  font-size: 18px;
+  font-weight: normal;
+  margin-top: 5px;
+}
+/* line 395, less\5_components.less */
+.product-card-table .product-desc .product-title small {
+  display: block;
+  color: #606975;
+  margin-bottom: 3px;
+}
+/* line 401, less\5_components.less */
+.product-card-table .product-desc .product-size,
+.product-card-table .product-desc .product-ref {
+  font-weight: 700;
+}
+/* line 406, less\5_components.less */
+.product-card-table .product-desc .product-list-desc > li {
+  display: block;
+}
+/* line 410, less\5_components.less */
+.product-card-table .product-desc .product-size .label,
+.product-card-table .product-desc .product-ref .label {
+  color: #9DA9B9;
+  font-size: 14px;
+  font-weight: 400;
+}
+/* line 420, less\5_components.less */
+.product-price {
+  font-size: 14px;
+  font-weight: 500;
+}
+/* line 425, less\5_components.less */
+.quantity {
+  position: relative;
+  display: inline-block;
+}
+/* line 430, less\5_components.less */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* line 436, less\5_components.less */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+/* line 440, less\5_components.less */
+.quantity input {
+  width: 65px;
+  height: 42px;
+  line-height: 1.65;
+  float: left;
+  display: block;
+  padding: 0;
+  padding-right: 20px;
+  margin: 0;
+  border: 1px solid #E1E7EC;
+  text-align: center;
+}
+/* line 453, less\5_components.less */
+.quantity input:focus {
+  outline: 0;
+}
+/* line 457, less\5_components.less */
+.quantity-nav {
+  float: left;
+  position: relative;
+  height: 42px;
+}
+/* line 463, less\5_components.less */
+.quantity-button {
+  position: relative;
+  cursor: pointer;
+  border-left: 1px solid #E1E7EC;
+  width: 20px;
+  text-align: center;
+  color: #333;
+  font-size: 13px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+  line-height: 1.7;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+/* line 482, less\5_components.less */
+.quantity-button.quantity-up {
+  position: absolute;
+  height: 50%;
+  top: 0;
+  border-bottom: 1px solid #E1E7EC;
+}
+/* line 489, less\5_components.less */
+.quantity-button.quantity-down {
+  position: absolute;
+  bottom: -1px;
+  height: 50%;
+}
+/* line 496, less\5_components.less */
+.table.totals tbody > tr:first-child > td,
+.table.totals tbody > tr:first-child > th {
+  border-width: 2px;
+}
+/* line 500, less\5_components.less */
+.table.totals .amount {
+  font-weight: 500;
+  text-align: right;
+}
+/* line 504, less\5_components.less */
+.table.totals .grand.totals {
+  font-size: 17px;
+}
+/* line 509, less\5_components.less */
+.table-caption {
+  color: #4AB9C0;
+  font-size: 18px;
+  font-weight: 900;
 }
 /*# sourceMappingURL=main.css.map */

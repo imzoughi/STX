@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html lang="fr" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="fr">
+<!--<![endif]-->
+<head>
+    <!--(bake /includes/global/head.html)-->
+</head>
+<body class="body">
+<!--(bake /includes/components/scoll-to-top.html)-->
+<div class="wrapper">
+    <!--(bake /includes/global/header.html)-->
+    <main class="main bg-gray">
+
+        <!--.section-shop-->
+        <section class="section-content section-panier">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-12">
+                        <div class="cart-container">
+
+                            <table class="table table-condensed">
+                                <thead>
+                                <tr>
+                                    <th class="text-left">Produit</th>
+                                    <th>Quantité</th>
+                                    <th width="15%">Prix HT</th>
+                                    <th width="15%">STHT</th>
+                                    <th>Supp</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <tr>
+                                    <td>
+                                        <div class="product-card-table">
+                                            <div class="product-thumb">
+                                                <a href="#"><img src="images/img-default.png" alt="Product"></a></div>
+                                            <div class="product-desc">
+                                                <!--.product-title-->
+                                                <h3 class="product-title">
+                                                    <small>Catégorie</small>
+                                                    <a href="#">Libellé produit</a>
+                                                </h3>
+                                                <!--/.product-title-->
+
+                                                <!--.product-list-desc-->
+                                                <ul class="product-list-desc list-inline">
+                                                    <li>
+                                                        <div class="product-ref">
+                                                            <span class="label">Référence:</span> 00023564982331
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="product-size">
+                                                            <span class="label">Taille:</span> S
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <!--/.product-list-desc-->
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="quantity">
+                                            <input type="number" min="1" max="9" step="1" value="1">
+                                            <div class="quantity-nav">
+                                                <div class="quantity-button quantity-up">+</div>
+                                                <div class="quantity-button quantity-down">-</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><div class="product-price">29.80 €</div></td>
+                                    <td><div class="product-price">39.80 €</div></td>
+                                    <td><a class="btn btn-link" href="#"><i class="icon-trash"></i></a></td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="product-card-table">
+                                            <div class="product-thumb">
+                                                <a href="#"><img src="images/img-default.png" alt="Product"></a></div>
+                                            <div class="product-desc">
+                                                <!--.product-title-->
+                                                <h3 class="product-title">
+                                                    <small>Catégorie</small>
+                                                    <a href="#">Libellé produit</a>
+                                                </h3>
+                                                <!--/.product-title-->
+                                                <ul class="product-list-desc list-inline">
+                                                    <li>
+                                                        <div class="product-ref">
+                                                            <span class="label">Référence:</span> 00023564982331
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="product-size">
+                                                            <span class="label">Taille:</span> S
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="quantity">
+                                            <input type="number" min="1" max="9" step="1" value="1">
+                                            <div class="quantity-nav">
+                                                <div class="quantity-button quantity-up">+</div>
+                                                <div class="quantity-button quantity-down">-</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><div class="product-price">29.80 €</div></td>
+                                    <td><div class="product-price">39.80 €</div></td>
+                                    <td><a href="#" class="btn btn-link"><i class="icon-trash"></i></a></td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <div class="cart-summary">
+
+                            <div class="cart-totals">
+
+                                <div class="table-wrapper">
+
+                                    <table class="table totals">
+                                        <caption class="table-caption">Total achat</caption>
+                                        <tbody>
+
+                                        <tr class="totals sub">
+                                            <th class="mark-label">Prix total HT</th>
+                                            <td class="amount">
+                                                <span class="price">59.60 €</span>
+                                            </td>
+                                        </tr>
+
+                                        <tr class="totals-tax">
+                                            <th class="mark-label" colspan="1">TVA</th>
+                                            <td class="amount">
+                                                <span class="price">0.00 €</span>
+                                            </td>
+                                        </tr>
+
+                                        <tr class="grand totals">
+                                            <th class="mark-label">
+                                                <strong>Prix total TTC</strong>
+                                            </th>
+                                            <td class="amount">
+                                                <strong><span class="price">59.60 €</span></strong>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <div class="cart-chekout">
+                                <a href="#" class="btn btn-outline-primary btn-block btn-lg radius-50">Transférer mon panier <span class="icon-basket-loaded"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!--/.section-shop-->
+
+    </main>
+    <!--(bake /includes/global/footer.html)-->
+</div>
+
+<!--(bake /includes/global/load-js.html)-->
+
+</body>
+</html>
