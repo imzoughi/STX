@@ -3921,4 +3921,434 @@ if (function(global, factory) {
             null != data.offsetTop && (data.offset.top = data.offsetTop), Plugin.call($spy, data);
         });
     });
-}(jQuery);
+}(jQuery), function(root, factory) {
+    "function" == typeof define && define.amd ? define([], factory(root)) : "object" == typeof exports ? module.exports = factory(root) : root.iziToast = factory(root);
+}("undefined" != typeof global ? global : window || this.window || this.global, function(root) {
+    "use strict";
+    var $iziToast = {}, PLUGIN_NAME = "iziToast", ISMOBILE = (document.querySelector("body"), 
+    !!/Mobi/.test(navigator.userAgent)), ISCHROME = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor), ISFIREFOX = "undefined" != typeof InstallTrigger, ACCEPTSTOUCH = "ontouchstart" in document.documentElement, POSITIONS = [ "bottomRight", "bottomLeft", "bottomCenter", "topRight", "topLeft", "topCenter", "center" ], THEMES = {
+        info: {
+            color: "blue",
+            icon: "ico-info"
+        },
+        success: {
+            color: "green",
+            icon: "ico-success"
+        },
+        warning: {
+            color: "orange",
+            icon: "ico-warning"
+        },
+        error: {
+            color: "red",
+            icon: "ico-error"
+        },
+        question: {
+            color: "yellow",
+            icon: "ico-question"
+        }
+    }, MOBILEWIDTH = 568, CONFIG = {}, defaults = {
+        id: null,
+        "class": "",
+        title: "",
+        titleColor: "",
+        titleSize: "",
+        titleLineHeight: "",
+        message: "",
+        messageColor: "",
+        messageSize: "",
+        messageLineHeight: "",
+        backgroundColor: "",
+        theme: "light",
+        color: "",
+        icon: "",
+        iconText: "",
+        iconColor: "",
+        image: "",
+        imageWidth: 50,
+        maxWidth: null,
+        zindex: null,
+        layout: 1,
+        balloon: !1,
+        close: !0,
+        closeOnEscape: !1,
+        rtl: !1,
+        position: "bottomRight",
+        target: "",
+        targetFirst: !0,
+        toastOnce: !1,
+        timeout: 5e3,
+        animateInside: !0,
+        drag: !0,
+        pauseOnHover: !0,
+        resetOnHover: !1,
+        progressBar: !0,
+        progressBarColor: "",
+        progressBarEasing: "linear",
+        overlay: !1,
+        overlayClose: !1,
+        overlayColor: "rgba(0, 0, 0, 0.6)",
+        transitionIn: "fadeInUp",
+        transitionOut: "fadeOut",
+        transitionInMobile: "fadeInUp",
+        transitionOutMobile: "fadeOutDown",
+        buttons: {},
+        onOpening: function() {},
+        onOpened: function() {},
+        onClosing: function() {},
+        onClosed: function() {}
+    };
+    if ("remove" in Element.prototype || (Element.prototype.remove = function() {
+        this.parentNode && this.parentNode.removeChild(this);
+    }), "function" != typeof window.CustomEvent) {
+        var CustomEventPolyfill = function(event, params) {
+            params = params || {
+                bubbles: !1,
+                cancelable: !1,
+                detail: void 0
+            };
+            var evt = document.createEvent("CustomEvent");
+            return evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail), 
+            evt;
+        };
+        CustomEventPolyfill.prototype = window.Event.prototype, window.CustomEvent = CustomEventPolyfill;
+    }
+    var forEach = function(collection, callback, scope) {
+        if ("[object Object]" === Object.prototype.toString.call(collection)) for (var prop in collection) Object.prototype.hasOwnProperty.call(collection, prop) && callback.call(scope, collection[prop], prop, collection); else if (collection) for (var i = 0, len = collection.length; i < len; i++) callback.call(scope, collection[i], i, collection);
+    }, extend = function(defaults, options) {
+        var extended = {};
+        return forEach(defaults, function(value, prop) {
+            extended[prop] = defaults[prop];
+        }), forEach(options, function(value, prop) {
+            extended[prop] = options[prop];
+        }), extended;
+    }, createFragElem = function(htmlStr) {
+        var frag = document.createDocumentFragment(), temp = document.createElement("div");
+        for (temp.innerHTML = htmlStr; temp.firstChild; ) frag.appendChild(temp.firstChild);
+        return frag;
+    }, isColor = function(color) {
+        return "#" == color.substring(0, 1) || "rgb" == color.substring(0, 3) || "hsl" == color.substring(0, 3);
+    }, isBase64 = function(str) {
+        try {
+            return btoa(atob(str)) == str;
+        } catch (err) {
+            return !1;
+        }
+    }, drag = function() {
+        return {
+            move: function(toast, instance, settings, xpos) {
+                var opacity, opacityRange = .3, distance = 180;
+                0 !== xpos && (toast.classList.add(PLUGIN_NAME + "-dragged"), toast.style.transform = "translateX(" + xpos + "px)", 
+                xpos > 0 ? (opacity = (distance - xpos) / distance, opacity < opacityRange && instance.hide(toast, extend(settings, {
+                    transitionOut: "fadeOutRight",
+                    transitionOutMobile: "fadeOutRight"
+                }), "drag")) : (opacity = (distance + xpos) / distance, opacity < opacityRange && instance.hide(toast, extend(settings, {
+                    transitionOut: "fadeOutLeft",
+                    transitionOutMobile: "fadeOutLeft"
+                }), "drag")), toast.style.opacity = opacity, opacity < opacityRange && ((ISCHROME || ISFIREFOX) && (toast.style.left = xpos + "px"), 
+                toast.parentNode.style.opacity = opacityRange, this.stopMoving(toast, null)));
+            },
+            startMoving: function(toast, instance, settings, e) {
+                e = e || window.event;
+                var posX = ACCEPTSTOUCH ? e.touches[0].clientX : e.clientX, toastLeft = toast.style.transform.replace("px)", "");
+                toastLeft = toastLeft.replace("translateX(", "");
+                var offsetX = posX - toastLeft;
+                toast.classList.remove(settings.transitionIn), toast.classList.remove(settings.transitionInMobile), 
+                toast.style.transition = "", ACCEPTSTOUCH ? document.ontouchmove = function(e) {
+                    e.preventDefault(), e = e || window.event;
+                    var posX = e.touches[0].clientX, finalX = posX - offsetX;
+                    drag.move(toast, instance, settings, finalX);
+                } : document.onmousemove = function(e) {
+                    e.preventDefault(), e = e || window.event;
+                    var posX = e.clientX, finalX = posX - offsetX;
+                    drag.move(toast, instance, settings, finalX);
+                };
+            },
+            stopMoving: function(toast, e) {
+                ACCEPTSTOUCH ? document.ontouchmove = function() {} : document.onmousemove = function() {}, 
+                toast.style.opacity = "", toast.style.transform = "", toast.classList.contains(PLUGIN_NAME + "-dragged") && (toast.classList.remove(PLUGIN_NAME + "-dragged"), 
+                toast.style.transition = "transform 0.4s ease, opacity 0.4s ease", setTimeout(function() {
+                    toast.style.transition = "";
+                }, 400));
+            }
+        };
+    }();
+    return $iziToast.destroy = function() {
+        forEach(document.querySelectorAll("." + PLUGIN_NAME + "-wrapper"), function(element, index) {
+            element.remove();
+        }), forEach(document.querySelectorAll("." + PLUGIN_NAME), function(element, index) {
+            element.remove();
+        }), document.removeEventListener(PLUGIN_NAME + "-opened", {}, !1), document.removeEventListener(PLUGIN_NAME + "-opening", {}, !1), 
+        document.removeEventListener(PLUGIN_NAME + "-closing", {}, !1), document.removeEventListener(PLUGIN_NAME + "-closed", {}, !1), 
+        document.removeEventListener("keyup", {}, !1), CONFIG = {};
+    }, $iziToast.settings = function(options) {
+        $iziToast.destroy(), CONFIG = options, defaults = extend(defaults, options || {});
+    }, forEach(THEMES, function(theme, name) {
+        $iziToast[name] = function(options) {
+            var settings = extend(CONFIG, options || {});
+            settings = extend(theme, settings || {}), this.show(settings);
+        };
+    }), $iziToast.progress = function($toast, options, callback) {
+        var that = this, settings = extend(that.settings, options || {}), $elem = $toast.querySelector("." + PLUGIN_NAME + "-progressbar div");
+        return {
+            start: function() {
+                null !== $elem && ($elem.style.transition = "width " + settings.timeout + "ms " + settings.progressBarEasing, 
+                $elem.style.width = "0%"), settings.TIME.START = new Date().getTime(), settings.TIME.END = settings.TIME.START + settings.timeout, 
+                settings.TIME.TIMER = setTimeout(function() {
+                    clearTimeout(settings.TIME.TIMER), $toast.classList.contains(PLUGIN_NAME + "-closing") || (that.hide($toast, settings, "timeout"), 
+                    "function" == typeof callback && callback.apply(that));
+                }, settings.timeout);
+            },
+            pause: function() {
+                if (settings.TIME.REMAINING = settings.TIME.END - new Date().getTime(), clearTimeout(settings.TIME.TIMER), 
+                null !== $elem) {
+                    var computedStyle = window.getComputedStyle($elem), propertyWidth = computedStyle.getPropertyValue("width");
+                    $elem.style.transition = "none", $elem.style.width = propertyWidth;
+                }
+                "function" == typeof callback && setTimeout(function() {
+                    callback.apply(that);
+                }, 10);
+            },
+            resume: function() {
+                null !== $elem && ($elem.style.transition = "width " + settings.TIME.REMAINING + "ms " + settings.progressBarEasing, 
+                $elem.style.width = "0%"), settings.TIME.END = new Date().getTime() + settings.TIME.REMAINING, 
+                settings.TIME.TIMER = setTimeout(function() {
+                    clearTimeout(settings.TIME.TIMER), $toast.classList.contains(PLUGIN_NAME + "-closing") || (that.hide($toast, settings, "timeout"), 
+                    "function" == typeof callback && callback.apply(that));
+                }, settings.TIME.REMAINING);
+            },
+            reset: function() {
+                clearTimeout(settings.TIME.TIMER), null !== $elem && ($elem.style.transition = "none", 
+                $elem.style.width = "100%"), "function" == typeof callback && setTimeout(function() {
+                    callback.apply(that);
+                }, 10);
+            }
+        };
+    }, $iziToast.hide = function($toast, options, closedBy) {
+        var settings = extend(this.settings, options || {});
+        closedBy = closedBy || null, "object" != typeof $toast && ($toast = document.querySelector($toast)), 
+        $toast.classList.add(PLUGIN_NAME + "-closing"), settings.closedBy = closedBy, settings.REF = $toast.getAttribute("data-iziToast-ref"), 
+        function() {
+            var $overlay = document.querySelector("." + PLUGIN_NAME + "-overlay");
+            if (null !== $overlay) {
+                var refs = $overlay.getAttribute("data-iziToast-ref");
+                refs = refs.split(",");
+                var index = refs.indexOf(settings.REF);
+                index !== -1 && refs.splice(index, 1), $overlay.setAttribute("data-iziToast-ref", refs.join()), 
+                0 === refs.length && ($overlay.classList.remove("fadeIn"), $overlay.classList.add("fadeOut"), 
+                setTimeout(function() {
+                    $overlay.remove();
+                }, 700));
+            }
+        }(), (settings.transitionIn || settings.transitionInMobile) && ($toast.classList.remove(settings.transitionIn), 
+        $toast.classList.remove(settings.transitionInMobile)), ISMOBILE || window.innerWidth <= MOBILEWIDTH ? settings.transitionOutMobile && $toast.classList.add(settings.transitionOutMobile) : settings.transitionOut && $toast.classList.add(settings.transitionOut);
+        var H = $toast.parentNode.offsetHeight;
+        $toast.parentNode.style.height = H + "px", $toast.style.pointerEvents = "none", 
+        (!ISMOBILE || window.innerWidth > MOBILEWIDTH) && ($toast.parentNode.style.transitionDelay = "0.2s");
+        try {
+            settings.closedBy = closedBy;
+            var event = new CustomEvent(PLUGIN_NAME + "-closing", {
+                detail: settings,
+                bubbles: !0,
+                cancelable: !0
+            });
+            document.dispatchEvent(event);
+        } catch (ex) {
+            console.warn(ex);
+        }
+        setTimeout(function() {
+            $toast.parentNode.style.height = "0px", $toast.parentNode.style.overflow = "", setTimeout(function() {
+                $toast.parentNode.remove();
+                try {
+                    settings.closedBy = closedBy;
+                    var event = new CustomEvent(PLUGIN_NAME + "-closed", {
+                        detail: settings,
+                        bubbles: !0,
+                        cancelable: !0
+                    });
+                    document.dispatchEvent(event);
+                } catch (ex) {
+                    console.warn(ex);
+                }
+                "undefined" != typeof settings.onClosed && settings.onClosed.apply(null, [ settings, $toast, closedBy ]);
+            }, 1e3);
+        }, 200), "undefined" != typeof settings.onClosing && settings.onClosing.apply(null, [ settings, $toast, closedBy ]);
+    }, $iziToast.show = function(options) {
+        var that = this, settings = extend(CONFIG, options || {});
+        if (settings = extend(defaults, settings), settings.TIME = {}, settings.toastOnce && settings.id && document.querySelectorAll("." + PLUGIN_NAME + "#" + settings.id).length > 0) return !1;
+        settings.REF = new Date().getTime() + Math.floor(1e7 * Math.random() + 1);
+        var $DOM = {
+            body: document.querySelector("body"),
+            overlay: document.createElement("div"),
+            toast: document.createElement("div"),
+            toastBody: document.createElement("div"),
+            toastTexts: document.createElement("div"),
+            toastCapsule: document.createElement("div"),
+            icon: document.createElement("i"),
+            cover: document.createElement("div"),
+            buttons: document.createElement("div"),
+            wrapper: null
+        };
+        $DOM.toast.setAttribute("data-iziToast-ref", settings.REF), $DOM.toast.appendChild($DOM.toastBody), 
+        $DOM.toastCapsule.appendChild($DOM.toast), function() {
+            if ($DOM.toast.classList.add(PLUGIN_NAME), $DOM.toast.classList.add(PLUGIN_NAME + "-opening"), 
+            $DOM.toastCapsule.classList.add(PLUGIN_NAME + "-capsule"), $DOM.toastBody.classList.add(PLUGIN_NAME + "-body"), 
+            $DOM.toastTexts.classList.add(PLUGIN_NAME + "-texts"), ISMOBILE || window.innerWidth <= MOBILEWIDTH ? settings.transitionInMobile && $DOM.toast.classList.add(settings.transitionInMobile) : settings.transitionIn && $DOM.toast.classList.add(settings.transitionIn), 
+            settings["class"]) {
+                var classes = settings["class"].split(" ");
+                forEach(classes, function(value, index) {
+                    $DOM.toast.classList.add(value);
+                });
+            }
+            settings.id && ($DOM.toast.id = settings.id), settings.rtl && $DOM.toast.classList.add(PLUGIN_NAME + "-rtl"), 
+            settings.layout > 1 && $DOM.toast.classList.add(PLUGIN_NAME + "-layout" + settings.layout), 
+            settings.balloon && $DOM.toast.classList.add(PLUGIN_NAME + "-balloon"), settings.maxWidth && (isNaN(settings.maxWidth) ? $DOM.toast.style.maxWidth = settings.maxWidth : $DOM.toast.style.maxWidth = settings.maxWidth + "px"), 
+            "" === settings.theme && "light" === settings.theme || $DOM.toast.classList.add(PLUGIN_NAME + "-theme-" + settings.theme), 
+            settings.color && (isColor(settings.color) ? $DOM.toast.style.background = settings.color : $DOM.toast.classList.add(PLUGIN_NAME + "-color-" + settings.color)), 
+            settings.backgroundColor && ($DOM.toast.style.background = settings.backgroundColor, 
+            settings.balloon && ($DOM.toast.style.borderColor = settings.backgroundColor));
+        }(), function() {
+            settings.image && ($DOM.cover.classList.add(PLUGIN_NAME + "-cover"), $DOM.cover.style.width = settings.imageWidth + "px", 
+            isBase64(settings.image.replace(/ /g, "")) ? $DOM.cover.style.backgroundImage = "url(data:image/png;base64," + settings.image.replace(/ /g, "") + ")" : $DOM.cover.style.backgroundImage = "url(" + settings.image + ")", 
+            settings.rtl ? $DOM.toastBody.style.marginRight = settings.imageWidth + 10 + "px" : $DOM.toastBody.style.marginLeft = settings.imageWidth + 10 + "px", 
+            $DOM.toast.appendChild($DOM.cover));
+        }(), function() {
+            settings.close ? ($DOM.buttonClose = document.createElement("button"), $DOM.buttonClose.classList.add(PLUGIN_NAME + "-close"), 
+            $DOM.buttonClose.addEventListener("click", function(e) {
+                e.target;
+                that.hide($DOM.toast, settings, "button");
+            }), $DOM.toast.appendChild($DOM.buttonClose)) : settings.rtl ? $DOM.toast.style.paddingLeft = "20px" : $DOM.toast.style.paddingRight = "20px";
+        }(), function() {
+            settings.timeout && (settings.progressBar && ($DOM.progressBar = document.createElement("div"), 
+            $DOM.progressBarDiv = document.createElement("div"), $DOM.progressBar.classList.add(PLUGIN_NAME + "-progressbar"), 
+            $DOM.progressBarDiv.style.background = settings.progressBarColor, $DOM.progressBar.appendChild($DOM.progressBarDiv), 
+            $DOM.toast.appendChild($DOM.progressBar)), settings.pauseOnHover && !settings.resetOnHover && ($DOM.toast.addEventListener("mouseenter", function(e) {
+                this.classList.add(PLUGIN_NAME + "-paused"), that.progress($DOM.toast, settings).pause();
+            }), $DOM.toast.addEventListener("mouseleave", function(e) {
+                this.classList.remove(PLUGIN_NAME + "-paused"), that.progress($DOM.toast, settings).resume();
+            })), settings.resetOnHover && ($DOM.toast.addEventListener("mouseenter", function(e) {
+                this.classList.add(PLUGIN_NAME + "-reseted"), that.progress($DOM.toast, settings).reset();
+            }), $DOM.toast.addEventListener("mouseleave", function(e) {
+                this.classList.remove(PLUGIN_NAME + "-reseted"), that.progress($DOM.toast, settings).start();
+            })));
+        }(), function() {
+            settings.icon && ($DOM.icon.setAttribute("class", PLUGIN_NAME + "-icon " + settings.icon), 
+            settings.iconText && $DOM.icon.appendChild(document.createTextNode(settings.iconText)), 
+            settings.rtl ? $DOM.toastBody.style.paddingRight = "33px" : $DOM.toastBody.style.paddingLeft = "33px", 
+            settings.iconColor && ($DOM.icon.style.color = settings.iconColor), $DOM.toastBody.appendChild($DOM.icon));
+        }(), function() {
+            settings.title.length > 0 && ($DOM.strong = document.createElement("strong"), $DOM.strong.classList.add(PLUGIN_NAME + "-title"), 
+            $DOM.strong.appendChild(createFragElem(settings.title)), $DOM.toastTexts.appendChild($DOM.strong), 
+            settings.titleColor && ($DOM.strong.style.color = settings.titleColor), settings.titleSize && (isNaN(settings.titleSize) ? $DOM.strong.style.fontSize = settings.titleSize : $DOM.strong.style.fontSize = settings.titleSize + "px"), 
+            settings.titleLineHeight && (isNaN(settings.titleSize) ? $DOM.strong.style.lineHeight = settings.titleLineHeight : $DOM.strong.style.lineHeight = settings.titleLineHeight + "px"));
+        }(), function() {
+            settings.message.length > 0 && ($DOM.p = document.createElement("p"), $DOM.p.classList.add(PLUGIN_NAME + "-message"), 
+            $DOM.p.appendChild(createFragElem(settings.message)), $DOM.toastTexts.appendChild($DOM.p), 
+            settings.messageColor && ($DOM.p.style.color = settings.messageColor), settings.messageSize && (isNaN(settings.titleSize) ? $DOM.p.style.fontSize = settings.messageSize : $DOM.p.style.fontSize = settings.messageSize + "px"), 
+            settings.messageLineHeight && (isNaN(settings.titleSize) ? $DOM.p.style.lineHeight = settings.messageLineHeight : $DOM.p.style.lineHeight = settings.messageLineHeight + "px"));
+        }(), settings.title.length > 0 && settings.message.length > 0 && (settings.rtl ? $DOM.strong.style.marginLeft = "10px" : 2 === settings.layout || settings.rtl || ($DOM.strong.style.marginRight = "10px")), 
+        $DOM.toastBody.appendChild($DOM.toastTexts), function() {
+            settings.buttons.length > 0 && ($DOM.buttons.classList.add(PLUGIN_NAME + "-buttons"), 
+            settings.title.length > 0 && 0 === settings.message.length && (settings.rtl ? $DOM.strong.style.marginLeft = "15px" : $DOM.strong.style.marginRight = "15px"), 
+            settings.message.length > 0 && (settings.rtl ? $DOM.p.style.marginLeft = "15px" : $DOM.p.style.marginRight = "15px", 
+            $DOM.p.style.marginBottom = "0"), forEach(settings.buttons, function(value, index) {
+                $DOM.buttons.appendChild(createFragElem(value[0]));
+                var $btns = $DOM.buttons.childNodes;
+                $btns[index].classList.add(PLUGIN_NAME + "-buttons-child"), value[2] && setTimeout(function() {
+                    $btns[index].focus();
+                }, 300), $btns[index].addEventListener("click", function(e) {
+                    e.preventDefault();
+                    var ts = value[1];
+                    return ts(that, $DOM.toast);
+                });
+            })), $DOM.toastBody.appendChild($DOM.buttons);
+        }(), function() {
+            $DOM.toastCapsule.style.visibility = "hidden", setTimeout(function() {
+                var H = $DOM.toast.offsetHeight, style = $DOM.toast.currentStyle || window.getComputedStyle($DOM.toast), marginTop = style.marginTop;
+                marginTop = marginTop.split("px"), marginTop = parseInt(marginTop[0]);
+                var marginBottom = style.marginBottom;
+                marginBottom = marginBottom.split("px"), marginBottom = parseInt(marginBottom[0]), 
+                $DOM.toastCapsule.style.visibility = "", $DOM.toastCapsule.style.height = H + marginBottom + marginTop + "px", 
+                setTimeout(function() {
+                    $DOM.toastCapsule.style.height = "auto", settings.target && ($DOM.toastCapsule.style.overflow = "visible");
+                }, 500), settings.timeout && that.progress($DOM.toast, settings).start();
+            }, 100);
+        }(), function() {
+            var position = settings.position;
+            if (settings.target) $DOM.wrapper = document.querySelector(settings.target), $DOM.wrapper.classList.add(PLUGIN_NAME + "-target"), 
+            settings.targetFirst ? $DOM.wrapper.insertBefore($DOM.toastCapsule, $DOM.wrapper.firstChild) : $DOM.wrapper.appendChild($DOM.toastCapsule); else {
+                if (POSITIONS.indexOf(settings.position) == -1) return void console.warn("[" + PLUGIN_NAME + "] Incorrect position.\nIt can be › " + POSITIONS);
+                position = ISMOBILE || window.innerWidth <= MOBILEWIDTH ? "bottomLeft" == settings.position || "bottomRight" == settings.position || "bottomCenter" == settings.position ? PLUGIN_NAME + "-wrapper-bottomCenter" : "topLeft" == settings.position || "topRight" == settings.position || "topCenter" == settings.position ? PLUGIN_NAME + "-wrapper-topCenter" : PLUGIN_NAME + "-wrapper-center" : PLUGIN_NAME + "-wrapper-" + position, 
+                $DOM.wrapper = document.querySelector("." + PLUGIN_NAME + "-wrapper." + position), 
+                $DOM.wrapper || ($DOM.wrapper = document.createElement("div"), $DOM.wrapper.classList.add(PLUGIN_NAME + "-wrapper"), 
+                $DOM.wrapper.classList.add(position), document.body.appendChild($DOM.wrapper)), 
+                "topLeft" == settings.position || "topCenter" == settings.position || "topRight" == settings.position ? $DOM.wrapper.insertBefore($DOM.toastCapsule, $DOM.wrapper.firstChild) : $DOM.wrapper.appendChild($DOM.toastCapsule);
+            }
+            isNaN(settings.zindex) ? console.warn("[" + PLUGIN_NAME + "] Invalid zIndex.") : $DOM.wrapper.style.zIndex = settings.zindex;
+        }(), function() {
+            settings.overlay && (null !== document.querySelector("." + PLUGIN_NAME + "-overlay.fadeIn") ? ($DOM.overlay = document.querySelector("." + PLUGIN_NAME + "-overlay"), 
+            $DOM.overlay.setAttribute("data-iziToast-ref", $DOM.overlay.getAttribute("data-iziToast-ref") + "," + settings.REF), 
+            isNaN(settings.zindex) || null === settings.zindex || ($DOM.overlay.style.zIndex = settings.zindex - 1)) : ($DOM.overlay.classList.add(PLUGIN_NAME + "-overlay"), 
+            $DOM.overlay.classList.add("fadeIn"), $DOM.overlay.style.background = settings.overlayColor, 
+            $DOM.overlay.setAttribute("data-iziToast-ref", settings.REF), isNaN(settings.zindex) || null === settings.zindex || ($DOM.overlay.style.zIndex = settings.zindex - 1), 
+            document.querySelector("body").appendChild($DOM.overlay)), settings.overlayClose ? ($DOM.overlay.removeEventListener("click", {}), 
+            $DOM.overlay.addEventListener("click", function(e) {
+                that.hide($DOM.toast, settings, "overlay");
+            })) : $DOM.overlay.removeEventListener("click", {}));
+        }(), function() {
+            if (settings.animateInside) {
+                $DOM.toast.classList.add(PLUGIN_NAME + "-animateInside");
+                var animationTimes = [ 200, 100, 300 ];
+                if ("bounceInLeft" == settings.transitionIn && (animationTimes = [ 400, 200, 400 ]), 
+                settings.title.length > 0 && setTimeout(function() {
+                    $DOM.strong.classList.add("slideIn");
+                }, animationTimes[0]), settings.message.length > 0 && setTimeout(function() {
+                    $DOM.p.classList.add("slideIn");
+                }, animationTimes[1]), settings.icon && setTimeout(function() {
+                    $DOM.icon.classList.add("revealIn");
+                }, animationTimes[2]), settings.buttons.length > 0 && $DOM.buttons) {
+                    var counter = 150;
+                    forEach($DOM.buttons.childNodes, function(element, index) {
+                        setTimeout(function() {
+                            element.classList.add("revealIn");
+                        }, counter), counter += 150;
+                    });
+                }
+            }
+        }(), settings.onOpening.apply(null, [ settings, $DOM.toast ]);
+        try {
+            var event = new CustomEvent(PLUGIN_NAME + "-opening", {
+                detail: settings,
+                bubbles: !0,
+                cancelable: !0
+            });
+            document.dispatchEvent(event);
+        } catch (ex) {
+            console.warn(ex);
+        }
+        setTimeout(function() {
+            $DOM.toast.classList.remove(PLUGIN_NAME + "-opening"), $DOM.toast.classList.add(PLUGIN_NAME + "-opened");
+            try {
+                var event = new CustomEvent(PLUGIN_NAME + "-opened", {
+                    detail: settings,
+                    bubbles: !0,
+                    cancelable: !0
+                });
+                document.dispatchEvent(event);
+            } catch (ex) {
+                console.warn(ex);
+            }
+            settings.onOpened.apply(null, [ settings, $DOM.toast ]);
+        }, 1e3), settings.drag && (ACCEPTSTOUCH ? ($DOM.toast.addEventListener("touchstart", function(e) {
+            drag.startMoving(this, that, settings, e);
+        }, !1), $DOM.toast.addEventListener("touchend", function(e) {
+            drag.stopMoving(this, e);
+        }, !1)) : ($DOM.toast.addEventListener("mousedown", function(e) {
+            e.preventDefault(), drag.startMoving(this, that, settings, e);
+        }, !1), $DOM.toast.addEventListener("mouseup", function(e) {
+            e.preventDefault(), drag.stopMoving(this, e);
+        }, !1))), settings.closeOnEscape && document.addEventListener("keyup", function(evt) {
+            evt = evt || window.event, 27 == evt.keyCode && that.hide($DOM.toast, settings, "esc");
+        }), that.toast = $DOM.toast;
+    }, $iziToast;
+});

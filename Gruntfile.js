@@ -54,6 +54,7 @@ module.exports = function (grunt) {
                     'dist/javascript/vendors.js': [
                         'bower_components/jquery/dist/jquery.js',
                         'bower_components/bootstrap/dist/js/bootstrap.js',
+                        'bower_components/izitoast/dist/js/iziToast.js',
                         'javascript/plugins/modernizr.js',
                     ],
 
@@ -69,6 +70,7 @@ module.exports = function (grunt) {
                     'dist/javascript/vendors.js': [
                         'bower_components/jquery/dist/jquery.js',
                         'bower_components/bootstrap/dist/js/bootstrap.js',
+                        'bower_components/izitoast/dist/js/iziToast.js',
                         'javascript/plugins/modernizr.js',
                         
                     ],
@@ -81,8 +83,29 @@ module.exports = function (grunt) {
         copy: {
             main: {
                 files: [
-                    {expand: true, src: ['images/**'], dest: 'dist', filter: 'isFile'},
-                    {expand: true, src: ['fonts/**'], dest: 'dist', filter: 'isFile'}
+                    {
+                        expand: true,
+                        src: [
+                            'bower_components/bootstrap/dist/css/bootstrap.min.css',
+                            'bower_components/bootstrap/dist/css/bootstrap-theme.min.css',
+                            'bower_components/izitoast/dist/css/iziToast.min.css',
+                        ],
+                        dest: 'dist/stylesheets/vendors/',
+                        flatten: true,
+                        filter: 'isFile'
+                    },
+                    {
+                        expand: true,
+                        src: ['images/**'],
+                        dest: 'dist',
+                        filter: 'isFile'
+                    },
+                    {
+                        expand: true,
+                        src: ['fonts/**'],
+                        dest: 'dist',
+                        filter: 'isFile'
+                    }
                 ],
             },
         },
@@ -112,7 +135,7 @@ module.exports = function (grunt) {
             },
             js: {
                 files: ['javascript/*.js', '!javascript/min.js'], // which files to watch
-                tasks: ['jshint', 'uglify:dev'],
+                tasks: ['uglify:dev'],
                 options: {
                     interrupt: true,
                     atBegin: true,
