@@ -10,6 +10,7 @@ module.exports = function (grunt) {
                     // files go here, like so:
 
                     "dist/index.html": "index.html",
+                    "dist/administration.html": "administration.html",
                     "dist/home.html": "home.html",
                     "dist/resultat-recherche.html": "resultat-recherche.html",
                     "dist/panier.html": "panier.html",
@@ -55,6 +56,8 @@ module.exports = function (grunt) {
                         'bower_components/jquery/dist/jquery.js',
                         'bower_components/bootstrap/dist/js/bootstrap.js',
                         'bower_components/izitoast/dist/js/iziToast.js',
+                        'javascript/plugins/fileinput.min.js',
+                        'javascript/plugins/fileinput-fr.js',
                         'javascript/plugins/modernizr.js',
                     ],
 
@@ -71,8 +74,10 @@ module.exports = function (grunt) {
                         'bower_components/jquery/dist/jquery.js',
                         'bower_components/bootstrap/dist/js/bootstrap.js',
                         'bower_components/izitoast/dist/js/iziToast.js',
+                        'javascript/plugins/fileinput.min.js',
+                        'javascript/plugins/fileinput-fr.js',
                         'javascript/plugins/modernizr.js',
-                        
+
                     ],
                     'dist/javascript/main.js': ['javascript/**/*.js'],
                 },
@@ -89,6 +94,7 @@ module.exports = function (grunt) {
                             'bower_components/bootstrap/dist/css/bootstrap.min.css',
                             'bower_components/bootstrap/dist/css/bootstrap-theme.min.css',
                             'bower_components/izitoast/dist/css/iziToast.min.css',
+                            'bower_components/bootstrap-fileinput/css/fileinput.min.css',
                         ],
                         dest: 'dist/stylesheets/vendors/',
                         flatten: true,

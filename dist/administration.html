@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html lang="fr" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="fr">
+<!--<![endif]-->
+<head>
+
+        <meta charset="utf-8">
+        <title>Segetex-eif</title>
+        <meta name="description" content="Description project"/>
+        <meta name="keywords" content="Keywords project"/>
+        <link rel="canonical" href="/"/>
+        <meta name="author" content="Segetex-eif"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="content-language" content="fr"/>
+
+        <!-- Mobile Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <!-- Favicon -->
+        <link rel="Shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+        <!-- Web Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700,900&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+
+        <!-- Vendors CSS files -->
+        <link rel="stylesheet" href="stylesheets/vendors/iziToast.min.css">
+        <link rel="stylesheet" href="stylesheets/vendors/fileinput.min.css">
+
+        <!-- site CSS file -->
+        <link rel="stylesheet" href="stylesheets/main.css">
+
+</head>
+<body class="body">
+
+<div class="wrapper">
+    <!--.header-->
+    <header class="header">
+        <div class="topbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-16">
+                        <div class="head-title">Administration Clients Punchout</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="home.html"><img src="images/logo.png" alt=""></a>
+                </div>
+                <div class="client-sorting pull-right">
+                    <form action="#" class="form-inline">
+                        <label for="sorting" class="text-muted">Sélectionner un Client</label>
+                        <select class="form-control input-sm radius-50" id="sorting">
+                            <option>Sanofi</option>
+                            <option>Client 1</option>
+                            <option>Client 2</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--/.header-->
+    <main class="main bg-gray">
+
+        <!--.section-admin-->
+        <section class="section-content section-admin">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-sm-12">
+                        <div class="admin-container">
+                            <!--<h2 class="section-title">Administration Clients Punchout</h2>-->
+                            <!--form-->
+                            <form action="#" class="form-sgtx">
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        <!--.form-group-->
+                                        <div class="form-group">
+                                            <label for="cvs-produits-input_id">Télécharger : CSV produits</label>
+                                            <div class="custom-file">
+                                                <input id="cvs-produits-input_id" name="CSV produits" type="file" class="file" data-show-preview="false">
+                                            </div>
+                                        </div>
+                                        <!--/.form-group-->
+                                        <!--.form-group-->
+                                        <div class="form-group">
+                                            <label for="cvs-articles-input_id">Télécharger : CSV articles</label>
+                                            <div class="custom-file">
+                                                <input id="cvs-articles-input_id" name="CSV articles" type="file" class="file" data-show-preview="false">
+                                            </div>
+                                        </div>
+                                        <!--/.form-group-->
+                                        <!--.form-group-->
+                                        <div class="form-group">
+                                            <label for="logo-input_id">Télécharger : Logo client</label>
+                                            <div class="custom-file">
+                                                <input id="logo-input_id" name="Logo  client" type="file" class="file" data-show-preview="false">
+                                            </div>
+                                        </div>
+                                        <!--/.form-group-->
+                                        <!--.form-group-->
+                                        <div class="form-group">
+                                            <label for="banniere-input_id">Télécharger : Bannière</label>
+                                            <div class="custom-file">
+                                                <input id="banniere-input_id" name="Bannière" type="file" class="file" data-show-preview="false">
+                                            </div>
+                                        </div>
+                                        <!--/.form-group-->
+                                        <!--.form-group-->
+                                        <div class="form-group">
+                                            <label for="lien-banniere-input_id">Télécharger : Lien bannière</label>
+                                            <div class="custom-file">
+                                                <input id="lien-banniere-input_id" name="Lien bannière" type="file" class="file" data-show-preview="false">
+                                            </div>
+                                        </div>
+                                        <!--/.form-group-->
+                                        <!--.form-group-->
+                                        <div class="form-action">
+                                            <button type="submit" class="btn btn-primary btn-lg radius-50"><span class="icon-paper-plane"></span><span>Envoyer</span></button>
+                                            <button type="submit" class="btn btn-outline-primary btn-lg radius-50"><span>Voir le catalogue en ligne</span><span class="icon-direction"></span></button>
+                                        </div>
+                                        <!--/.form-group-->
+                                    </div>
+                                </div>
+                            </form>
+                            <!--form-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!--/.section-admin-->
+
+    </main>
+    <!--.footer-->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-16">
+                    <p>
+                        <strong>SEGETEX S.A.S.</strong> / 26, Boulevard Paul Vaillant Couturier 94200 IVRY-SUR-SEINE / Tél. : 01 56 20 60 02 / Fax : 01 56 20 60 05 / E-mail : contact@segetex.com
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--.footer-->
+</div>
+
+<script type="text/javascript" src="javascript/vendors.js"></script>
+<script type="text/javascript" src="javascript/main.js"></script>
+
+</body>
+</html>

@@ -11,6 +11,7 @@
 $(function () {
     cartQuantity.init();
     cartMessage.init();
+    inputFile.init();
 });
 /* ========================================== *\
  *  MODULES
@@ -189,6 +190,24 @@ var cartMessage = function () {
                     }
             }
             iziToast.show(h)
+        });
+
+    }
+
+    return {
+        init: _init
+    };
+}();
+
+/* =inputFile */
+var inputFile = function () {
+    function _init() {
+
+        $('input[type="file"]').fileinput({
+            rtl: 'true',
+            showCaption: false,
+            showPreview: false,
+            showUpload: false,
         });
 
     }
