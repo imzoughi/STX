@@ -208,6 +208,7 @@ var inputFile = function () {
             showCaption: false,
             showPreview: false,
             showUpload: false,
+            allowedFileExtensions: ['jpg', 'gif', 'png', 'txt']
         });
 
     }

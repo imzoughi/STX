@@ -60,7 +60,6 @@ module.exports = function (grunt) {
                         'javascript/plugins/fileinput-fr.js',
                         'javascript/plugins/modernizr.js',
                     ],
-
                     'dist/javascript/main.js': ['javascript/*.js'],
                 },
             },
@@ -79,7 +78,7 @@ module.exports = function (grunt) {
                         'javascript/plugins/modernizr.js',
 
                     ],
-                    'dist/javascript/main.js': ['javascript/**/*.js'],
+                    'dist/javascript/main.js': ['javascript/*.js'],
                 },
             },
         },
