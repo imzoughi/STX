@@ -49,7 +49,21 @@
 
 .shop-toolbar .container {
   border-bottom : 1px solid @gray-light;
+  margin-bottom : 15px;
+  }
+
+.list-tags {
+  list-style: none;
+  padding: 0;
+  border-bottom : 1px solid @gray-light;
   margin-bottom : 25px;
+  > li {
+    display: inline-block;
+    padding: 0 5px;
+    a {
+      margin-bottom: 15px;
+      }
+    }
   }
 
 .input-search {
@@ -183,7 +197,7 @@ select.form-control {
     }
 
   &.product-list {
-    margin-bottom : 30px;
+    margin-bottom : 15px;
 
     @media (min-width : @screen-sm) {
       display : table;
@@ -706,7 +720,7 @@ select.input-sm {
 
   @media (min-width: @screen-sm) {
     padding: 30px 24px;
-    margin-top: 100px;
+    margin-top: 50px;
     }
 
   .icon-erreur {
