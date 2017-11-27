@@ -12,6 +12,7 @@ module.exports = function (grunt) {
                     "dist/index.html": "index.html",
                     "dist/administration.html": "administration.html",
                     "dist/login.html": "login.html",
+                    "dist/erreurs.html": "erreurs.html",
                     "dist/home.html": "home.html",
                     "dist/resultat-recherche.html": "resultat-recherche.html",
                     "dist/panier.html": "panier.html",
