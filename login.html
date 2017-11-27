@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html lang="fr" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="fr">
+<!--<![endif]-->
+<head>
+    <!--(bake /includes/global/head.html)-->
+</head>
+<body class="body bg-gray">
+<!--(bake /includes/components/scoll-to-top.html)-->
+<div class="wrapper">
+    <!--(bake /includes/global/header-login.html)-->
+    <main class="main">
+
+        <!--.section-content-->
+        <div class="section-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12">
+                        <div class="login-box">
+
+                            <!--.login-box--header-->
+                            <div class="login-box--header">
+                                <div class="row">
+                                    <div class="col-xs-12 text-center">
+                                        <a class="login-brand" href="home.html"><img src="images/logo.png" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.login-box--header-->
+
+                            <!--.login-box--header-->
+                            <div class="login-box--body">
+                                <div class="alert alert-danger alert-dismissible fade show text-center margin-bottom-1x">
+                                    <span class="alert-close" data-dismiss="alert"></span><i class="icon-close"></i>&nbsp;&nbsp;<strong>Danger alert:</strong> Deserunt praesentium laboriosam quaerat mollitia.
+                                </div>
+                                <form class="form-connexion" data-toggle="validator">
+                                    <fieldset>
+
+                                        <!-- Text input-->
+                                        <div class="form-group clearfix has-feedback">
+                                            <label class="col-md-12 col-sm-12 col-xs-12 sr-only" for="user-identifiant_id">Identifiant</label>
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon radius-left-50"><i class="icon-user"></i></span>
+                                                    <input type="text" class="form-control radius-right-50" placeholder="Votre identifiant" id="user-identifiant_id" aria-describedby="user-identifiant_id">
+                                                </div>
+                                                <span class="fa form-control-feedback" aria-hidden="true"></span>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Text input-->
+                                        <div class="form-group clearfix has-feedback">
+                                            <label class="col-md-12 col-sm-12 col-xs-12 sr-only" for="user-password_id">Mot de passe</label>
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon radius-left-50"><i class="icon-lock"></i></span>
+                                                    <input type="password" class="form-control radius-right-50" placeholder="Votre mot de passe" id="user-password_id" aria-describedby="user-identifiant_id">
+                                                </div>
+                                                <span class="fa form-control-feedback" aria-hidden="true"></span>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Button -->
+                                        <div class="form-group clearfix text-center">
+                                            <button class="btn btn-outline-primary btn-lg radius-50">Connexion</button>
+                                        </div>
+
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <!--/.login-box--header-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--./section-content-->
+
+    </main>
+</div>
+
+<!--(bake /includes/global/load-js.html)-->
+
+</body>
+</html>

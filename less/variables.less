@@ -197,7 +197,7 @@
 @input-border-focus : #66AFE9;
 
 //** Placeholder text color
-@input-color-placeholder : #999;
+@input-color-placeholder : @gray-second;
 
 //** Default `.form-control` height
 @input-height-base : (@line-height-computed + (@padding-base-vertical * 2) + 2);
@@ -213,7 +213,7 @@
 @legend-border-color : #E5E5E5;
 
 //** Background color for textual input addons
-@input-group-addon-bg : @gray-lighter;
+@input-group-addon-bg : #ffffff;
 //** Border color for textual input addons
 @input-group-addon-border-color : @input-border;
 
@@ -478,20 +478,20 @@
 //
 //## Define colors for form feedback states and, by default, alerts.
 
-@state-success-text : #3C763D;
-@state-success-bg : #DFF0D8;
+@state-success-text : @brand-success;
+@state-success-bg : lighten(@brand-success, 30%);
 @state-success-border : darken(spin(@state-success-bg, -10), 5%);
 
-@state-info-text : #31708F;
-@state-info-bg : #D9EDF7;
+@state-info-text : @brand-info;
+@state-info-bg : lighten(@brand-info, 30%);
 @state-info-border : darken(spin(@state-info-bg, -10), 7%);
 
-@state-warning-text : #8A6D3B;
-@state-warning-bg : #FCF8E3;
+@state-warning-text : @brand-warning;
+@state-warning-bg : lighten(@brand-warning, 30%);
 @state-warning-border : darken(spin(@state-warning-bg, -10), 5%);
 
-@state-danger-text : #A94442;
-@state-danger-bg : #F2DEDE;
+@state-danger-text : @brand-danger;
+@state-danger-bg : lighten(@brand-danger, 30%);
 @state-danger-border : darken(spin(@state-danger-bg, -10), 5%);
 
 //== Tooltips

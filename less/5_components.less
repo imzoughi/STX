@@ -27,6 +27,18 @@
   border-radius         : 50px !important;
   }
 
+.radius-left-50 {
+  -webkit-border-radius : 50px 0 0 50px !important;
+  -moz-border-radius    : 50px 0 0 50px !important;
+  border-radius         : 50px 0 0 50px !important;
+  }
+
+.radius-right-50 {
+  -webkit-border-radius : 0 50px 50px 0 !important;
+  -moz-border-radius    : 0 50px 50px 0 !important;
+  border-radius         : 0 50px 50px 0 !important;
+  }
+
 .bg-gray {
   background-color : lighten(@gray-light, 8%) !important;
   }
@@ -660,4 +672,22 @@ input[type=number] {
 select.input-sm {
   height: 30px;
   line-height: 20px;
+  }
+
+.login-box {
+  display: block;
+  width: 100%;
+  padding: 15px 12px;
+  background-color : #FFF;
+  border: 1px solid #e1e7ec;
+  border-radius: 7px;
+
+  @media (min-width: @screen-sm) {
+    padding: 30px 24px;
+    margin-top: 100px;
+    }
+
+  &--header {
+    margin-bottom: 20px;
+    }
   }
