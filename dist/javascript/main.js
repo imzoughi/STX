@@ -23,132 +23,24 @@ var cartQuantity = function() {
     };
 }(), cartMessage = function() {
     function _init() {
-        $("[data-toast]").on("click", function() {
-            var b = $(this), c = b.data("toast-type"), d = b.data("toast-icon"), e = b.data("toast-position"), f = b.data("toast-title"), g = b.data("toast-message"), h = "";
-            switch (e) {
-              case "topRight":
-                h = {
-                    "class": "iziToast-" + c || "",
-                    title: f || "Title",
-                    message: g || "toast message",
-                    animateInside: !1,
-                    position: "topRight",
-                    progressBar: !1,
-                    overlay: !0,
-                    icon: d,
-                    timeout: 3200,
-                    transitionIn: "fadeInLeft",
-                    transitionOut: "fadeOut",
-                    transitionInMobile: "fadeIn",
-                    transitionOutMobile: "fadeOut"
-                };
-                break;
-
-              case "bottomRight":
-                h = {
-                    "class": "iziToast-" + c || "",
-                    title: f || "Title",
-                    message: g || "toast message",
-                    animateInside: !1,
-                    position: "bottomRight",
-                    progressBar: !1,
-                    overlay: !0,
-                    icon: d,
-                    timeout: 3200,
-                    transitionIn: "fadeInLeft",
-                    transitionOut: "fadeOut",
-                    transitionInMobile: "fadeIn",
-                    transitionOutMobile: "fadeOut"
-                };
-                break;
-
-              case "topLeft":
-                h = {
-                    "class": "iziToast-" + c || "",
-                    title: f || "Title",
-                    message: g || "toast message",
-                    animateInside: !1,
-                    position: "topLeft",
-                    progressBar: !1,
-                    overlay: !0,
-                    icon: d,
-                    timeout: 3200,
-                    transitionIn: "fadeInRight",
-                    transitionOut: "fadeOut",
-                    transitionInMobile: "fadeIn",
-                    transitionOutMobile: "fadeOut"
-                };
-                break;
-
-              case "bottomLeft":
-                h = {
-                    "class": "iziToast-" + c || "",
-                    title: f || "Title",
-                    message: g || "toast message",
-                    animateInside: !1,
-                    position: "bottomLeft",
-                    progressBar: !1,
-                    overlay: !0,
-                    icon: d,
-                    timeout: 3200,
-                    transitionIn: "fadeInRight",
-                    transitionOut: "fadeOut",
-                    transitionInMobile: "fadeIn",
-                    transitionOutMobile: "fadeOut"
-                };
-                break;
-
-              case "topCenter":
-                h = {
-                    "class": "iziToast-" + c || "",
-                    title: f || "Title",
-                    message: g || "toast message",
-                    animateInside: !1,
-                    position: "topCenter",
-                    progressBar: !1,
-                    icon: d,
-                    timeout: 3200,
-                    transitionIn: "fadeInDown",
-                    transitionOut: "fadeOut",
-                    transitionInMobile: "fadeIn",
-                    transitionOutMobile: "fadeOut"
-                };
-                break;
-
-              case "bottomCenter":
-                h = {
-                    "class": "iziToast-" + c || "",
-                    title: f || "Title",
-                    message: g || "toast message",
-                    animateInside: !1,
-                    position: "bottomCenter",
-                    progressBar: !1,
-                    icon: d,
-                    timeout: 3200,
-                    transitionIn: "fadeInUp",
-                    transitionOut: "fadeOut",
-                    transitionInMobile: "fadeIn",
-                    transitionOutMobile: "fadeOut"
-                };
-                break;
-
-              default:
-                h = {
-                    "class": "iziToast-" + c || "",
-                    title: f || "Title",
-                    message: g || "toast message",
-                    animateInside: !1,
-                    position: "topRight",
-                    progressBar: !1,
-                    icon: d,
-                    timeout: 3200,
-                    transitionIn: "fadeInLeft",
-                    transitionOut: "fadeOut",
-                    transitionInMobile: "fadeIn",
-                    transitionOutMobile: "fadeOut"
-                };
-            }
-            iziToast.show(h);
+        $("[data-toast='succes']").on("click", function() {
+            iziToast.success({
+                type: "success",
+                position: "topCenter",
+                icon: "icon-like",
+                title: "Le produit",
+                message: "a été ajouté à votre panier avec succès!",
+                progressBar: !1
+            });
+        }), $("[data-toast='error']").on("click", function() {
+            iziToast.error({
+                type: "danger",
+                position: "topCenter",
+                icon: "icon-dislike",
+                title: "Le produit",
+                message: "n'a pas été ajouté à votre panier!",
+                progressBar: !1
+            });
         });
     }
     return {
