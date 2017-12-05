@@ -1,9 +1,9 @@
-Paris&CO
+Segetex
 
 Build & development
 
 - Download the last version of node
-- cd ParisCo/
+- cd STX/
 - npm install
 - npm install -g bower
 - bower install (install front dependencies inside a directory called "inc")
