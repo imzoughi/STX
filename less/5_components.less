@@ -147,9 +147,17 @@ select.form-control {
       margin-bottom : 3px;
       }
     .product-pdf-link {
-      position : absolute;
-      top      : 0;
-      right    : 0;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      color: red;
+      /* font-weight: bold; */
+      border: 1px solid @gray-light;
+      padding: 5px;
+      border-radius: 4px;
+      background-color: @gray-light;
       }
     }
 
@@ -175,15 +183,17 @@ select.form-control {
     }
 
   .product-pdf-link {
-    > svg {
+    > img {
       height : 28px;
       width  : 28px;
+      margin-right: 5px;
       path {
         fill : @brand-danger !important;
         }
       }
     &:hover {
-      > svg {
+      border-color : red;
+      > img {
         path {
           fill : darken(@brand-danger, 5%) !important;
           }
