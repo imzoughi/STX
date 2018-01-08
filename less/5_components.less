@@ -128,10 +128,16 @@ select.form-control {
     width         : 100%;
     margin-bottom : 10px;
     img {
-      margin    : 0 auto;
-      max-width : 100%;
+      margin     : 0 auto;
+      max-width  : 100%;
+      width      : 100% \9; // Fix IE9
+      max-height : 100%;
+      display    : block;
+
+      //Fix IE10 & IE11
       @media screen and (-ms-high-contrast : active), (-ms-high-contrast : none) {
         width : 100%;
+        height: auto;
         }
       }
     }
@@ -226,6 +232,7 @@ select.form-control {
       .product-thumb {
         position     : relative;
         width        : 240px;
+        //height   : 240px;
         padding      : 20px 18px;
         border-right : 1px solid #E1E7EC;
         }
