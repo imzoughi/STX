@@ -44,7 +44,7 @@
   }
 
 .m-auto {
-  margin: auto !important;
+  margin : auto !important;
   }
 
 .shop-toolbar .container {
@@ -53,15 +53,15 @@
   }
 
 .list-tags {
-  list-style: none;
-  padding: 0;
+  list-style    : none;
+  padding       : 0;
   border-bottom : 1px solid @gray-light;
   margin-bottom : 25px;
   > li {
-    display: inline-block;
-    padding: 0 5px;
+    display : inline-block;
+    padding : 0 5px;
     a {
-      margin-bottom: 15px;
+      margin-bottom : 15px;
       }
     }
   }
@@ -130,6 +130,9 @@ select.form-control {
     img {
       margin    : 0 auto;
       max-width : 100%;
+      @media screen and (-ms-high-contrast : active), (-ms-high-contrast : none) {
+        width : 100%;
+        }
       }
     }
 
@@ -147,17 +150,17 @@ select.form-control {
       margin-bottom : 3px;
       }
     .product-pdf-link {
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      font-size: 11px;
-      text-transform: uppercase;
-      color: red;
+      position         : absolute;
+      top              : -10px;
+      right            : -10px;
+      font-size        : 11px;
+      text-transform   : uppercase;
+      color            : red;
       /* font-weight: bold; */
-      border: 1px solid @gray-light;
-      padding: 5px;
-      border-radius: 4px;
-      background-color: @gray-light;
+      border           : 1px solid @gray-light;
+      padding          : 5px;
+      border-radius    : 4px;
+      background-color : @gray-light;
       }
     }
 
@@ -184,9 +187,9 @@ select.form-control {
 
   .product-pdf-link {
     > img {
-      height : 28px;
-      width  : 28px;
-      margin-right: 5px;
+      height       : 28px;
+      width        : 28px;
+      margin-right : 5px;
       path {
         fill : @brand-danger !important;
         }
@@ -425,20 +428,20 @@ ul.pagination li.disabled span,
 
 .cart-chekout {
   .note {
-    text-align: center;
+    text-align : center;
     p {
-      margin-bottom: 0;
+      margin-bottom : 0;
       }
     }
   .btn + .note {
-    margin-top: 10px;
+    margin-top : 10px;
     }
   }
 
 .note {
-  color: @gray-second;
-  font-size: 13px;
-  font-weight: 400;
+  color       : @gray-second;
+  font-size   : 13px;
+  font-weight : 400;
   }
 
 .product-card-table {
@@ -702,7 +705,7 @@ input[type=number] {
     cursor        : pointer;
     }
   .form-action {
-    margin-top: 25px;
+    margin-top : 25px;
     }
   }
 
@@ -724,62 +727,64 @@ input[type=number] {
     }
 
   .fileinput-upload-button {
-    display: none;
+    display : none;
     }
 
   }
+
 .client-sorting {
-  padding: 19px 0;
+  padding : 19px 0;
   label {
-    font-size: 12px;
+    font-size : 12px;
     }
   }
+
 select.input-sm {
-  height: 30px;
-  line-height: 20px;
+  height      : 30px;
+  line-height : 20px;
   }
 
 .login-box {
-  display: block;
-  width: 100%;
-  padding: 15px 12px;
+  display          : block;
+  width            : 100%;
+  padding          : 15px 12px;
   background-color : #FFF;
-  border: 1px solid #e1e7ec;
-  border-radius: 7px;
+  border           : 1px solid #E1E7EC;
+  border-radius    : 7px;
 
-  @media (min-width: @screen-sm) {
-    padding: 30px 24px;
-    margin-top: 100px;
+  @media (min-width : @screen-sm) {
+    padding    : 30px 24px;
+    margin-top : 100px;
     }
 
   &--header {
-    margin-bottom: 20px;
+    margin-bottom : 20px;
     }
   }
 
 .box-erreur {
-  display: block;
-  width: 100%;
-  padding: 15px 12px;
+  display          : block;
+  width            : 100%;
+  padding          : 15px 12px;
   background-color : #FFF;
-  border: 1px solid #e1e7ec;
-  border-radius: 7px;
+  border           : 1px solid #E1E7EC;
+  border-radius    : 7px;
 
-  @media (min-width: @screen-sm) {
-    padding: 30px 24px;
-    margin-top: 50px;
+  @media (min-width : @screen-sm) {
+    padding    : 30px 24px;
+    margin-top : 50px;
     }
 
   .icon-erreur {
-    color: @gray-light;
-    font-size: 350px;
-    text-align: center;
-    position: absolute;
-    z-index: 0;
+    color      : @gray-light;
+    font-size  : 350px;
+    text-align : center;
+    position   : absolute;
+    z-index    : 0;
     }
   .text-erreur {
-    padding: 130px 0;
-    position: relative;
-    z-index: 1;
+    padding  : 130px 0;
+    position : relative;
+    z-index  : 1;
     }
   }
