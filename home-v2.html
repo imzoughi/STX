@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html lang="fr" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="fr">
+<!--<![endif]-->
+<head>
+    <!--(bake /includes/global/head.html)-->
+</head>
+<body class="body">
+<!--(bake /includes/components/scoll-to-top.html)-->
+<div class="wrapper">
+    <!--(bake /includes/global/header.html)-->
+    <main class="main bg-gray">
+
+        <!--.page-title-->
+        <div class="page-title">
+            <div class="container">
+                <div class="column text-center">
+                    <a href="#"><img src="images/pub-img-1140x90.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <!--/.page-title-->
+
+        <!--.section-shop-->
+        <section class="section-content section-shop">
+
+            <!--.products-grid-->
+            <div class="products-list">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <!--.shop-toolbar-aside-->
+                            <div class="shop-toolbar-aside">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <ul class="nav nav-pills nav-stacked">
+                                            <li class="nav-item"><a class="nav-link active" href="#">Protection risques mineurs</a>
+                                            </li>
+                                            <li class="nav-item"><a class="nav-link" href="#">Protection générale</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="#">Protection chimique</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="#">Salles blanches</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="#">Accessoires de protection</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <form>
+                                            <div class="form-group input-search">
+                                                <button class="btn btn-link" type="submit"><i class="icon-magnifier"></i></button>
+                                                <input class="form-control radius-50" type="text" placeholder="Rechercher une référence">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="shop-sorting">
+                                            <label for="sorting">Filtrer par:</label>
+                                            <select class="form-control radius-50" id="sorting">
+                                                <option>Prix : Bas - Haut</option>
+                                                <option>Prix : Haut - Bas</option>
+                                                <option>Ordre: A - Z</option>
+                                                <option>Ordre: Z - A</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.shop-toolbar-aside-->
+                        </div>
+                        <div class="col-xs-9">
+                            <div class="row row-collapse">
+                                <!--(bake /includes/shop/product-item.html)-->
+                                <!--(bake /includes/shop/product-item-multi-ref.html)-->
+                                <!--(bake /includes/shop/product-item.html)-->
+                                <!--(bake /includes/shop/product-item-multi-ref.html)-->
+                                <!--(bake /includes/shop/product-item.html)-->
+                                <!--(bake /includes/shop/product-item-multi-ref.html)-->
+
+                                <!--.pagination-->
+                                <nav class="text-center">
+                                    <ul class="pagination">
+                                        <li class="disabled">
+                                            <span aria-label="Previous"><i class="icon-arrow-left"></i></span></li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">...</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#" aria-label="Next"><i class="icon-arrow-right"></i></a></li>
+                                    </ul>
+                                </nav>
+                                <!--/.pagination-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/.products-grid-->
+
+        </section>
+        <!--/.section-shop-->
+
+    </main>
+    <!--(bake /includes/global/footer.html)-->
+</div>
+
+<!--(bake /includes/global/load-js.html)-->
+
+</body>
+</html>

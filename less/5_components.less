@@ -4,12 +4,13 @@
 
 .page-title {
   width   : 100%;
-  padding : 36px 0;
+  padding : 0;
   //border-bottom: 1px solid @gray-light;
   //background-color: #f5f5f5;
   > .container,
   > .container-fluid {
     display : table;
+    padding: 0;
     div[class^="column"] {
       display        : table-cell;
       vertical-align : middle;
@@ -47,12 +48,19 @@
   margin : auto !important;
   }
 
-.shop-toolbar .container {
-  border-bottom : 1px solid @gray-light;
-  margin-bottom : 15px;
+.shop-toolbar {
+  background-color : @brand-primary;
+  margin-bottom    : 25px;
+  .container {
+    padding       : 15px 5px;
+    margin-bottom : 0px;
+    }
+  .list-tags .nav-link {
+    color : white;
+    }
   }
 
-.list-tags {
+.shop-filter-tags .list-tags {
   list-style    : none;
   padding       : 0;
   border-bottom : 1px solid @gray-light;
@@ -67,17 +75,20 @@
   }
 
 .input-search {
-  position : relative;
+  position      : relative;
+  margin-bottom : 0;
   .btn {
     position  : absolute;
     top       : 0px;
     right     : 0;
-    height    : 45px;
+    height    : @input-height-medium;
     font-size : 18px;
     color     : @gray;
     }
   .form-control {
     padding-right : 40px;
+    height        : @input-height-medium;
+    line-height   : @input-height-medium;
     }
   }
 
@@ -99,15 +110,17 @@ select.form-control {
   label {
     margin         : 0;
     padding        : 8px 5px 8px 0;
-    color          : @gray-second;
+    color          : white;
     font-size      : 14px;
     font-weight    : normal;
     text-transform : none;
     }
   .form-control {
-    width        : 100%;
+    width        : 50%;
     max-width    : 186px;
     margin-right : 10px;
+    height       : @input-height-medium;
+    line-height  : @input-height-medium - 12;
     }
   span {
     padding : 8px 0;
@@ -128,17 +141,17 @@ select.form-control {
     width         : 100%;
     margin-bottom : 10px;
     img {
-      margin     : 0 auto;
-      max-width  : 100%;
-      width      : 100% \9; // Fix IE9
-      max-height : 100%;
-      display    : block;
-
-      //Fix IE10 & IE11
-      @media screen and (-ms-high-contrast : active), (-ms-high-contrast : none) {
-        width : 100%;
-        height: auto;
-        }
+      margin    : 0 auto;
+      max-width : 203px; // Modif de Martial
+      //width      : 100% \9; // Fix IE9
+      //max-height : 100%;
+      //display    : block;
+      //
+      ////Fix IE10 & IE11
+      //@media screen and (-ms-high-contrast : active), (-ms-high-contrast : none) {
+      //  width  : 100%;
+      //  height : auto;
+      //  }
       }
     }
 
@@ -312,6 +325,31 @@ select.form-control {
   border-top  : 1px solid @gray-light;
   padding-top : 10px;
   margin-top  : 18px;
+  }
+
+.shop-toolbar-aside {
+  border                : 1px solid @gray-light;
+  -webkit-border-radius : 7px; -moz-border-radius : 7px; border-radius : 7px;
+  padding               : 20px;
+  .nav-stacked {
+    border-bottom  : 1px solid @gray-light;
+    padding-bottom : 10px;
+    margin-bottom  : 15px;
+    .nav-link {
+      padding       : 8px 16px;
+      margin-right  : 0;
+      margin-bottom : 5px;
+      }
+    }
+
+  .input-search {
+    margin-bottom : 15px;
+    }
+  .shop-sorting .form-control {
+    width        : 65%;
+    max-width    : 100%;
+    margin-right : 0;
+    }
   }
 
 /* Pager
