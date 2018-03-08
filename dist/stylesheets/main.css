@@ -6363,7 +6363,6 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .input-search .form-control {
   padding-right: 40px;
   height: 38px;
-  line-height: 38px;
 }
 /* line 95, less\5_components.less */
 select.form-control {
